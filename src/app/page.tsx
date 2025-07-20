@@ -4,14 +4,15 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { getAllDestinations, fetchImage } from '@/lib/destinations';
+import { getAllDestinations } from '@/lib/destinations';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 
 
 export default async function Home() {
   const destinations = await getAllDestinations();
-  const heroImageUrl = await fetchImage("indian temple gopuram", 2070, 1380);
+  const heroDestination = destinations.find(d => d.slug === 'kashi');
+  const heroImageUrl = heroDestination?.slideshowImages[0]?.url || `https://placehold.co/2070x1380.png`;
 
   return (
     <>

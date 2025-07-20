@@ -1,10 +1,9 @@
-// src/components/news-feed.tsx
+
 "use client";
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getNewsFeed, type NewsFeedOutput } from '@/ai/flows/news-feed-flow';
-import { fetchImage } from '@/lib/destinations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Newspaper, Loader2 } from 'lucide-react';
@@ -22,13 +21,13 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
       setIsLoading(true);
       try {
         const newsData = await getNewsFeed({ destinationName });
-        const newsWithImages = await Promise.all(
-            newsData.newsItems.map(async (item) => ({
-                ...item,
-                imageUrl: await fetchImage(item.imageQuery, 800, 600)
-            }))
-        );
-        setNews(newsWithImages);
+        // NOTE: We are intentionally NOT fetching images here via API to save on requests
+        // and keep the news feed loading fast. We will use placeholders.
+        const newsWithPlaceholders = newsData.newsItems.map(item => ({
+          ...item,
+          imageUrl: `https://placehold.co/800x600.png`
+        }));
+        setNews(newsWithPlaceholders);
       } catch (error) {
         console.error("Failed to fetch news feed:", error);
         toast({
