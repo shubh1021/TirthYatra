@@ -21,6 +21,18 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'as1.ftcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+       {
+        protocol: 'https',
+        hostname: 'as2.ftcdn.net',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

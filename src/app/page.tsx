@@ -4,15 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getAllDestinations } from '@/lib/destinations';
-import { getHomepageHeroImage } from '@/services/unsplash';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 
+const HERO_IMAGE_URL = "https://images.unsplash.com/photo-1587799194582-7c749479b69b?q=80&w=2070&auto=format&fit=crop";
+
 export default async function Home() {
-  const [destinations, heroImageUrl] = await Promise.all([
-    getAllDestinations(),
-    getHomepageHeroImage()
-  ]);
+  const destinations = await getAllDestinations();
 
   return (
     <>
@@ -21,7 +19,7 @@ export default async function Home() {
         <div className="absolute inset-0">
           <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
             <Image
-              src={heroImageUrl}
+              src={HERO_IMAGE_URL}
               alt="Indian temple architecture"
               data-ai-hint="indian temple architecture"
               fill

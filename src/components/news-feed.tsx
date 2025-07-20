@@ -1,14 +1,21 @@
 // src/components/news-feed.tsx
 "use client";
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getNewsFeed, type NewsFeedOutput } from '@/ai/flows/news-feed-flow';
-import { getImages } from '@/services/unsplash';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Newspaper, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+
+// We will use placeholders for news feed images as they are dynamically generated.
+const placeholderImages = [
+    'https://images.unsplash.com/photo-1508624217470-8ef0d5843c2c?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1498522434633-c863a893c834?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1542289947-7595d2a40498?q=80&w=2070&auto=format&fit=crop',
+];
 
 type NewsItemWithImage = NewsFeedOutput['newsItems'][0] & { imageUrl: string };
 
@@ -22,15 +29,11 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
       setIsLoading(true);
       try {
         const newsData = await getNewsFeed({ destinationName });
-        const newsWithImages = await Promise.all(
-          newsData.newsItems.map(async (item) => {
-            const images = await getImages(item.imageQuery, 1, 'landscape');
-            return {
-              ...item,
-              imageUrl: images[0]?.urls.regular || 'https://placehold.co/1200x800.png',
-            };
-          })
-        );
+        // Since Unsplash API is unreliable for dynamic queries, we cycle through placeholders.
+        const newsWithImages = newsData.newsItems.map((item, index) => ({
+            ...item,
+            imageUrl: placeholderImages[index % placeholderImages.length]
+        }));
         setNews(newsWithImages);
       } catch (error) {
         console.error("Failed to fetch news feed:", error);
@@ -39,6 +42,7 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
           title: 'Error',
           description: 'Could not load the latest news. Please try again later.',
         });
+        setNews([]); // Set to empty array on error to avoid infinite loading
       } finally {
         setIsLoading(false);
       }
