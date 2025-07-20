@@ -31,7 +31,7 @@ export const destinations: Destination[] = [
     slug: 'ayodhya',
     name: 'Ayodhya',
     description: 'The sacred birthplace of Lord Rama, a city of ancient temples and ghats.',
-    image: 'https://images.unsplash.com/photo-1707731920783-0eabc5457c69?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1707731920783-0eabc5457c69?q=80&w=800&h=1000&fit=crop',
     imageHint: 'Ayodhya temple',
     slideshowImages: [
       { url: 'https://images.unsplash.com/photo-1677336943521-235e0767a210?q=80&w=1200&h=800&fit=crop', hint: 'Sarayu river' },
@@ -58,7 +58,7 @@ export const destinations: Destination[] = [
     slug: 'kashi',
     name: 'Kashi',
     description: 'Varanasi, the spiritual capital of India, a city of ghats, temples, and moksha.',
-    image: 'https://images.unsplash.com/photo-1528450393792-28a17688c805?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1528450393792-28a17688c805?q=80&w=800&h=1000&fit=crop',
     imageHint: 'Varanasi ghats',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1603803233814-4e94116c1410?q=80&w=1200&h=800&fit=crop', hint: 'Ganges aarti' },
@@ -85,7 +85,7 @@ export const destinations: Destination[] = [
     slug: 'mathura',
     name: 'Mathura',
     description: 'The vibrant birthplace of Lord Krishna, resonating with tales of his divine life.',
-    image: 'https://images.unsplash.com/photo-1590321430444-0de472a15748?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1590321430444-0de472a15748?q=80&w=800&h=1000&fit=crop',
     imageHint: 'Mathura celebration',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1610486161491-5c742514125b?q=80&w=1200&h=800&fit=crop', hint: 'Krishna Janmabhoomi' },
@@ -112,7 +112,7 @@ export const destinations: Destination[] = [
     slug: 'dwarka',
     name: 'Dwarka',
     description: 'The legendary kingdom of Lord Krishna, one of the four sacred Char Dham sites.',
-    image: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=800&h=1000&fit=crop',
     imageHint: 'Dwarka temple',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=1200&h=800&fit=crop', hint: 'Dwarkadhish temple' },
@@ -138,7 +138,7 @@ export const destinations: Destination[] = [
     slug: 'rameswaram',
     name: 'Rameswaram',
     description: 'A holy island town known for its magnificent Ramanathaswamy Temple.',
-    image: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=800&h=1000&fit=crop',
     imageHint: 'Rameswaram corridor',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1628181679930-b4d458703348?q=80&w=1200&h=800&fit=crop', hint: 'Ramanathaswamy Temple' },
