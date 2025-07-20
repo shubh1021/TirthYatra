@@ -2,17 +2,23 @@
 'use server';
 
 import { createApi } from 'unsplash-js';
+import { config } from 'dotenv';
+
+// Load environment variables from .env file
+config();
 
 // Cache to avoid hitting API rate limits during development
 const imageCache = new Map();
 
-// Initialize the Unsplash client inside the function to ensure process.env is available.
+// Initialize the Unsplash client inside a function to ensure process.env is available.
 const getUnsplashClient = () => {
   const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+
   if (!unsplashAccessKey) {
     console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
     return null;
   }
+  
   return createApi({
     accessKey: unsplashAccessKey,
   });
@@ -31,9 +37,12 @@ export async function getImages(
   const unsplash = getUnsplashClient();
 
   if (!unsplash) {
+    const width = orientation === 'portrait' ? 600 : (orientation === 'squarish' ? 400 : 1200);
+    const height = orientation === 'portrait' ? 800 : (orientation === 'squarish' ? 400 : 800);
+    
     return Array(count).fill({
         urls: {
-            regular: `https://placehold.co/1200x800.png`,
+            regular: `https://placehold.co/${width}x${height}.png`,
             small: `https://placehold.co/400x300.png`
         },
         user: {
