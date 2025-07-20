@@ -33,11 +33,11 @@ const destinationsData: Destination[] = [
     slug: 'ayodhya', 
     name: 'Ayodhya', 
     description: 'The sacred birthplace of Lord Rama, a city of ancient temples and ghats on the Sarayu river.', 
-    image: '/api/image?query=Ayodhya%20temple%20India',
-    imageHint: 'Ayodhya temple India', 
+    image: '/api/image?query=Ayodhya%20temple',
+    imageHint: 'Ayodhya temple', 
     slideshowImages: [
-      { url: '/api/image?query=Ayodhya%20saryu%20river', hint: 'Ayodhya sarayu river' },
-      { url: '/api/image?query=Ayodhya%20ram%20mandir', hint: 'Ayodhya ram mandir' },
+      { url: '/api/image?query=Ayodhya%20river', hint: 'Ayodhya river' },
+      { url: '/api/image?query=ram%20mandir', hint: 'ram mandir' },
       { url: '/api/image?query=Ayodhya%20ghats', hint: 'Ayodhya ghats' }
     ], 
     history: 'Ayodhya, one of the seven sacred cities of Hinduism, has a rich history dating back to ancient times. It was the capital of the Kosala Kingdom and is deeply intertwined with the epic Ramayana.', 
@@ -45,9 +45,9 @@ const destinationsData: Destination[] = [
     etiquette: { dressCode: 'Modest attire is recommended. Cover shoulders and knees when visiting temples.', tips: ['Remove footwear before entering temples.', 'Respect local customs and traditions.', 'Photography may be restricted in some areas.'] }, 
     events: [ { date: 'Apr 17, 2025', title: 'Ram Navami', info: 'Grand celebrations for Lord Rama\'s birthday.' }, { date: 'Nov 1, 2024', title: 'Deepotsav', info: 'A spectacular festival of lights.' } ], 
     nearby: [ 
-      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats%20India', imageHint: 'Varanasi ghats India' }, 
-      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20Vrindavan%20temple', imageHint: 'Mathura Vrindavan temple' }, 
-      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20Ganges%20river', imageHint: 'Haridwar Ganges river' } 
+      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats', imageHint: 'Varanasi ghats' }, 
+      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20temple', imageHint: 'Mathura temple' }, 
+      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20river', imageHint: 'Haridwar river' } 
     ] 
   },
   { 
@@ -55,10 +55,10 @@ const destinationsData: Destination[] = [
     slug: 'kashi', 
     name: 'Kashi (Varanasi)', 
     description: 'The spiritual capital of India, a mystical city of ghats, ancient temples, and moksha.', 
-    image: '/api/image?query=Varanasi%20ghats%20India',
-    imageHint: 'Varanasi ghats India', 
+    image: '/api/image?query=Varanasi%20ghats',
+    imageHint: 'Varanasi ghats', 
     slideshowImages: [
-      { url: '/api/image?query=Varanasi%20ganges%20boat', hint: 'Varanasi ganges boat' },
+      { url: '/api/image?query=Varanasi%20ganges', hint: 'Varanasi ganges' },
       { url: '/api/image?query=Varanasi%20street', hint: 'Varanasi street' },
       { url: '/api/image?query=Varanasi%20sadhu', hint: 'Varanasi sadhu' }
     ], 
@@ -67,9 +67,9 @@ const destinationsData: Destination[] = [
     etiquette: { dressCode: 'Conservative clothing is advised, especially around religious sites.', tips: ['Be mindful of the funeral ceremonies at the burning ghats.', 'Bargaining is common in markets.', 'A boat ride on the Ganges at dawn is a must-do.'] }, 
     events: [ { date: 'Mar 7, 2025', title: 'Maha Shivaratri', info: 'A major festival dedicated to Lord Shiva.' }, { date: 'Nov 15, 2024', title: 'Dev Deepawali', info: 'The festival of lights of the gods.' } ], 
     nearby: [ 
-      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple%20India', imageHint: 'Ayodhya temple India' }, 
-      { id: '7', name: 'Puri', image: '/api/image?query=Puri%20Jagannath%20temple', imageHint: 'Puri Jagannath temple' }, 
-      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple%20gopuram', imageHint: 'Tirupati temple gopuram' } 
+      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple', imageHint: 'Ayodhya temple' }, 
+      { id: '7', name: 'Puri', image: '/api/image?query=Puri%20temple', imageHint: 'Puri temple' }, 
+      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple', imageHint: 'Tirupati temple' } 
     ] 
   },
   { 
@@ -77,11 +77,11 @@ const destinationsData: Destination[] = [
     slug: 'mathura-vrindavan', 
     name: 'Mathura & Vrindavan', 
     description: 'The vibrant twin holy towns, the birthplace and childhood home of Lord Krishna.', 
-    image: '/api/image?query=Mathura%20Vrindavan%20temple',
-    imageHint: 'Mathura Vrindavan temple', 
+    image: '/api/image?query=Mathura%20temple',
+    imageHint: 'Mathura temple', 
     slideshowImages: [
-      { url: '/api/image?query=Vrindavan%20holi%20festival', hint: 'Vrindavan holi festival' },
-      { url: '/api/image?query=Mathura%20krishna%20temple', hint: 'Mathura krishna temple' },
+      { url: '/api/image?query=Vrindavan%20festival', hint: 'Vrindavan festival' },
+      { url: '/api/image?query=Mathura%20krishna', hint: 'Mathura krishna' },
       { url: '/api/image?query=Vrindavan%20devotees', hint: 'Vrindavan devotees' }
     ], 
     history: 'Mathura is an ancient city with a history that spans millennia. It has been an important center for art, culture, and religion, particularly Vaishnavism.', 
@@ -89,9 +89,9 @@ const destinationsData: Destination[] = [
     etiquette: { dressCode: 'Wear comfortable and modest clothes. Bright colors are common during festivals.', tips: ['Be cautious of monkeys in temple areas.', 'Try the local specialty, "Mathura peda".', 'Participate in the joyous Holi celebrations if visiting in spring.'] }, 
     events: [ { date: 'Aug 26, 2024', title: 'Krishna Janmashtami', info: 'Elaborate festival celebrating Krishna\'s birth.' }, { date: 'Mar 14, 2025', title: 'Holi', info: 'The famous festival of colors is celebrated with great zeal.' } ], 
     nearby: [ 
-      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple%20India', imageHint: 'Ayodhya temple India' }, 
+      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple', imageHint: 'Ayodhya temple' }, 
       { id: '9', name: 'Amritsar', image: '/api/image?query=Amritsar%20Golden%20Temple', imageHint: 'Amritsar Golden Temple' }, 
-      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20temple%20Himalayas', imageHint: 'Kedarnath temple Himalayas' } 
+      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20Himalayas', imageHint: 'Kedarnath Himalayas' } 
     ] 
   },
   { 
@@ -99,21 +99,21 @@ const destinationsData: Destination[] = [
     slug: 'dwarka', 
     name: 'Dwarka', 
     description: 'The legendary golden kingdom of Lord Krishna, one of the four sacred Char Dham sites.', 
-    image: '/api/image?query=Dwarka%20temple%20Gujarat',
-    imageHint: 'Dwarka temple Gujarat', 
+    image: '/api/image?query=Dwarka%20temple',
+    imageHint: 'Dwarka temple', 
     slideshowImages: [
       { url: '/api/image?query=Dwarkadhish%20temple', hint: 'Dwarkadhish temple' },
-      { url: '/api/image?query=Dwarka%20beach', hint: 'Dwarka beach' },
-      { url: '/api/image?query=Gomti%20ghat%20Dwarka', hint: 'Gomti ghat Dwarka' }
+      { url: '/api/image?query=Dwarka%20sea', hint: 'Dwarka sea' },
+      { url: '/api/image?query=Gomti%20ghat', hint: 'Gomti ghat' }
     ], 
     history: 'Ancient Dwarka was a prosperous city that is said to have been submerged by the sea. The modern city is a major pilgrimage hub for Vaishnavites.', 
     mythology: 'Dwarka is identified with the Dwarka Kingdom, the ancient kingdom of Lord Krishna. He is said to have established this city after leaving Mathura.', 
     etiquette: { dressCode: 'Respectful attire is expected in the temples and holy sites.', tips: ['Take a ferry to the island of Bet Dwarka.', 'Visit the Nageshwar Jyotirlinga Temple.', 'The sea can be rough, be cautious near the coast.'] }, 
     events: [ { date: 'Aug 26, 2024', title: 'Janmashtami', info: 'Celebrations are held at the Dwarkadhish Temple.' } ], 
     nearby: [ 
-      { id: '7', name: 'Puri', image: '/api/image?query=Puri%20Jagannath%20temple', imageHint: 'Puri Jagannath temple' }, 
-      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple%20corridor', imageHint: 'Rameswaram temple corridor' }, 
-      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20temple%20Himalayas', imageHint: 'Kedarnath temple Himalayas' } 
+      { id: '7', name: 'Puri', image: '/api/image?query=Puri%20temple', imageHint: 'Puri temple' }, 
+      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple', imageHint: 'Rameswaram temple' }, 
+      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20Himalayas', imageHint: 'Kedarnath Himalayas' } 
     ] 
   },
   { 
@@ -121,11 +121,11 @@ const destinationsData: Destination[] = [
     slug: 'rameswaram', 
     name: 'Rameswaram', 
     description: 'A holy island town known for its magnificent Ramanathaswamy Temple with its grand corridors.', 
-    image: '/api/image?query=Rameswaram%20temple%20corridor',
-    imageHint: 'Rameswaram temple corridor', 
+    image: '/api/image?query=Rameswaram%20temple',
+    imageHint: 'Rameswaram temple', 
     slideshowImages: [
       { url: '/api/image?query=Pamban%20bridge', hint: 'Pamban bridge' },
-      { url: '/api/image?query=Ramanathaswamy%20temple%20pillar', hint: 'Ramanathaswamy temple pillar' },
+      { url: '/api/image?query=Ramanathaswamy%20temple', hint: 'Ramanathaswamy temple' },
       { url: '/api/image?query=Dhanushkodi%20beach', hint: 'Dhanushkodi beach' }
     ], 
     history: 'Rameswaram has been a pilgrimage center for centuries, with its temple being a fine example of Dravidian architecture.', 
@@ -133,9 +133,9 @@ const destinationsData: Destination[] = [
     etiquette: { dressCode: 'Modest dress is required for temple entry. Men may need to be bare-chested.', tips: ['Take a holy dip in the Agni Theertham.', 'Walk through the famous temple corridors.', 'Visit the ghost town of Dhanushkodi.'] }, 
     events: [ { date: 'Feb 26, 2025', title: 'Maha Shivaratri', info: 'A night of prayer and festivities for Lord Shiva.' } ], 
     nearby: [ 
-      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple%20gopuram', imageHint: 'Tirupati temple gopuram' }, 
+      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple', imageHint: 'Tirupati temple' }, 
       { id: '9', name: 'Amritsar', image: '/api/image?query=Amritsar%20Golden%20Temple', imageHint: 'Amritsar Golden Temple' }, 
-      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20Vrindavan%20temple', imageHint: 'Mathura Vrindavan temple' } 
+      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20temple', imageHint: 'Mathura temple' } 
     ] 
   },
   { 
@@ -143,21 +143,21 @@ const destinationsData: Destination[] = [
     slug: 'haridwar-rishikesh', 
     name: 'Haridwar & Rishikesh', 
     description: 'Twin spiritual towns on the banks of the Ganges, the gateway to the Himalayas.', 
-    image: '/api/image?query=Haridwar%20Ganges%20river',
-    imageHint: 'Haridwar Ganges river', 
+    image: '/api/image?query=Haridwar%20Ganges',
+    imageHint: 'Haridwar Ganges', 
     slideshowImages: [
       { url: '/api/image?query=Rishikesh%20yoga', hint: 'Rishikesh yoga' },
-      { url: '/api/image?query=Haridwar%20ganga%20aarti', hint: 'Haridwar ganga aarti' },
-      { url: '/api/image?query=Lakshman%20Jhula%20bridge', hint: 'Lakshman Jhula bridge' }
+      { url: '/api/image?query=Haridwar%20aarti', hint: 'Haridwar aarti' },
+      { url: '/api/image?query=Lakshman%20Jhula', hint: 'Lakshman Jhula' }
     ], 
     history: 'Haridwar and Rishikesh are ancient pilgrimage sites. Haridwar is where the Ganges enters the plains, while Rishikesh is known as the "Yoga Capital of the World".', 
     mythology: 'These towns are steeped in Hindu mythology, with numerous temples and ashrams dedicated to various deities. They are the starting point for the Char Dham Yatra of Uttarakhand.', 
     etiquette: { dressCode: 'Modest, comfortable clothing suitable for walking and yoga.', tips: ['Attend the Ganga Aarti at Har Ki Pauri.', 'Explore the ashrams of Rishikesh.', 'Try white-water rafting for an adventurous twist.'] }, 
     events: [ { date: 'April 14, 2025', title: 'Vaisakhi', info: 'Celebrates the solar new year with holy dips in the Ganges.' } ], 
     nearby: [ 
-      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple%20India', imageHint: 'Ayodhya temple India' }, 
-      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats%20India', imageHint: 'Varanasi ghats India' }, 
-      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20Vrindavan%20temple', imageHint: 'Mathura Vrindavan temple' } 
+      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple', imageHint: 'Ayodhya temple' }, 
+      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats', imageHint: 'Varanasi ghats' }, 
+      { id: '3', name: 'Mathura & Vrindavan', image: '/api/image?query=Mathura%20temple', imageHint: 'Mathura temple' } 
     ] 
   },
   { 
@@ -165,21 +165,21 @@ const destinationsData: Destination[] = [
     slug: 'puri', 
     name: 'Puri', 
     description: 'Home to the Jagannath Temple, famous for its annual Rath Yatra festival.', 
-    image: '/api/image?query=Puri%20Jagannath%20temple',
-    imageHint: 'Puri Jagannath temple', 
+    image: '/api/image?query=Puri%20Jagannath',
+    imageHint: 'Puri Jagannath', 
     slideshowImages: [
-      { url: '/api/image?query=Puri%20rath%20yatra', hint: 'Puri rath yatra' },
+      { url: '/api/image?query=Puri%20chariot', hint: 'Puri chariot' },
       { url: '/api/image?query=Puri%20beach', hint: 'Puri beach' },
-      { url: '/api/image?query=Konark%20sun%20temple', hint: 'Konark sun temple' }
+      { url: '/api/image?query=Konark%20temple', hint: 'Konark temple' }
     ], 
     history: 'Puri is one of the Char Dham pilgrimage sites. The Jagannath Temple is an architectural marvel and has been a focal point of Hinduism for centuries.', 
     mythology: 'The temple is dedicated to Lord Jagannath (a form of Krishna), his brother Balabhadra, and sister Subhadra.', 
     etiquette: { dressCode: 'Strict dress code for the temple; non-Hindus are not permitted inside the main sanctum.', tips: ['Witness the grand Rath Yatra if visiting in summer.', 'Relax on the golden sands of Puri Beach.', 'Take a day trip to the Konark Sun Temple.'] }, 
     events: [ { date: 'July 7, 2024', title: 'Rath Yatra', info: 'The spectacular chariot festival.' } ], 
     nearby: [ 
-      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats%20India', imageHint: 'Varanasi ghats India' }, 
-      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple%20gopuram', imageHint: 'Tirupati temple gopuram' }, 
-      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple%20corridor', imageHint: 'Rameswaram temple corridor' } 
+      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats', imageHint: 'Varanasi ghats' }, 
+      { id: '8', name: 'Tirupati', image: '/api/image?query=Tirupati%20temple', imageHint: 'Tirupati temple' }, 
+      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple', imageHint: 'Rameswaram temple' } 
     ] 
   },
   { 
@@ -187,21 +187,21 @@ const destinationsData: Destination[] = [
     slug: 'tirupati', 
     name: 'Tirupati', 
     description: 'The abode of Lord Venkateswara, one of the most visited and wealthiest pilgrimage centers.', 
-    image: '/api/image?query=Tirupati%20temple%20gopuram',
-    imageHint: 'Tirupati temple gopuram', 
+    image: '/api/image?query=Tirupati%20gopuram',
+    imageHint: 'Tirupati gopuram', 
     slideshowImages: [
-      { url: '/api/image?query=Tirumala%20temple', hint: 'Tirumala temple' },
-      { url: '/api/image?query=Tirupati%20landscape', hint: 'Tirupati landscape' },
-      { url: '/api/image?query=Venkateswara%20deity', hint: 'Venkateswara deity' }
+      { url: '/api/image?query=Tirumala%20hills', hint: 'Tirumala hills' },
+      { url: '/api/image?query=Tirupati%20temple%20architecture', hint: 'Tirupati temple architecture' },
+      { url: '/api/image?query=Venkateswara%20idol', hint: 'Venkateswara idol' }
     ], 
     history: 'The temple\'s origins are ancient, with contributions from various dynasties over centuries. It is a masterpiece of Dravidian architecture.', 
     mythology: 'Lord Venkateswara, a form of Vishnu, is believed to have manifested here to save mankind from the trials of the Kali Yuga.', 
     etiquette: { dressCode: 'Traditional Indian attire is mandatory (Dhoti for men, Saree/Chudidar for women).', tips: ['Book your darshan (viewing) slot online well in advance.', 'Be prepared for large crowds and long queues.', 'Do not carry leather items or electronic gadgets inside the temple.'] }, 
     events: [ { date: 'Sept-Oct 2024', title: 'Brahmotsavam', info: 'A nine-day grand festival celebrated with processions.' } ], 
     nearby: [ 
-      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple%20corridor', imageHint: 'Rameswaram temple corridor' }, 
+      { id: '5', name: 'Rameswaram', image: '/api/image?query=Rameswaram%20temple', imageHint: 'Rameswaram temple' }, 
       { id: '9', name: 'Amritsar', image: '/api/image?query=Amritsar%20Golden%20Temple', imageHint: 'Amritsar Golden Temple' }, 
-      { id: '4', name: 'Dwarka', image: '/api/image?query=Dwarka%20temple%20Gujarat', imageHint: 'Dwarka temple Gujarat' } 
+      { id: '4', name: 'Dwarka', image: '/api/image?query=Dwarka%20temple', imageHint: 'Dwarka temple' } 
     ] 
   },
   { 
@@ -212,18 +212,18 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Amritsar%20Golden%20Temple',
     imageHint: 'Amritsar Golden Temple', 
     slideshowImages: [
-      { url: '/api/image?query=Golden%20Temple%20reflection', hint: 'Golden Temple reflection' },
-      { url: '/api/image?query=Wagah%20border%20ceremony', hint: 'Wagah border ceremony' },
-      { url: '/api/image?query=Langar%20community%20kitchen', hint: 'Langar community kitchen' }
+      { url: '/api/image?query=Golden%20Temple%20night', hint: 'Golden Temple night' },
+      { url: '/api/image?query=Wagah%20border', hint: 'Wagah border' },
+      { url: '/api/image?query=Langar%20kitchen', hint: 'Langar kitchen' }
     ], 
     history: 'Founded in the 16th century, Amritsar is a city of immense historical and religious importance for Sikhism.', 
     mythology: 'The Golden Temple, or Harmandir Sahib, is the holiest gurdwara of Sikhism, symbolizing equality and brotherhood.', 
     etiquette: { dressCode: 'Head must be covered for all genders inside the temple complex. Scarves are provided.', tips: ['Partake in the langar (free community meal).', 'Visit the Jallianwala Bagh memorial.', 'Witness the Wagah Border ceremony in the evening.'] }, 
     events: [ { date: 'April 14, 2025', title: 'Vaisakhi', info: 'Celebrated with great fervor as the founding day of the Khalsa.' } ], 
     nearby: [ 
-      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20Ganges%20river', imageHint: 'Haridwar Ganges river' }, 
-      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20temple%20Himalayas', imageHint: 'Kedarnath temple Himalayas' }, 
-      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple%20India', imageHint: 'Ayodhya temple India' } 
+      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20river', imageHint: 'Haridwar river' }, 
+      { id: '10', name: 'Kedarnath', image: '/api/image?query=Kedarnath%20Himalayas', imageHint: 'Kedarnath Himalayas' }, 
+      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple', imageHint: 'Ayodhya temple' } 
     ] 
   },
   { 
@@ -231,11 +231,11 @@ const destinationsData: Destination[] = [
     slug: 'kedarnath', 
     name: 'Kedarnath', 
     description: 'A majestic Himalayan temple dedicated to Lord Shiva, part of the Char Dham Yatra.', 
-    image: '/api/image?query=Kedarnath%20temple%20Himalayas',
-    imageHint: 'Kedarnath temple Himalayas', 
+    image: '/api/image?query=Kedarnath%20temple',
+    imageHint: 'Kedarnath temple', 
     slideshowImages: [
       { url: '/api/image?query=Kedarnath%20valley', hint: 'Kedarnath valley' },
-      { url: '/api/image?query=Himalayan%20mountains', hint: 'Himalayan mountains' },
+      { url: '/api/image?query=Himalayas', hint: 'Himalayas' },
       { url: '/api/image?query=Shiva%20temple%20snow', hint: 'Shiva temple snow' }
     ], 
     history: 'An ancient temple that has stood for over a thousand years amidst the challenging Himalayan terrain, rebuilt after the 2013 floods.', 
@@ -243,9 +243,9 @@ const destinationsData: Destination[] = [
     etiquette: { dressCode: 'Warm layered clothing is essential due to the high altitude and cold weather.', tips: ['Acclimatize properly to avoid altitude sickness.', 'The temple is only open for about six months a year (typically Apr-Nov).', 'The journey involves a significant trek; pony and helicopter services are available.'] }, 
     events: [ { date: 'May 10, 2025 (Tentative)', title: 'Temple Opening', info: 'The ceremonial opening of the temple doors after winter.' } ], 
     nearby: [ 
-      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20Ganges%20river', imageHint: 'Haridwar Ganges river' }, 
-      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats%20India', imageHint: 'Varanasi ghats India' }, 
-      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple%20India', imageHint: 'Ayodhya temple India' } 
+      { id: '6', name: 'Haridwar & Rishikesh', image: '/api/image?query=Haridwar%20river', imageHint: 'Haridwar river' }, 
+      { id: '2', name: 'Kashi (Varanasi)', image: '/api/image?query=Varanasi%20ghats', imageHint: 'Varanasi ghats' }, 
+      { id: '1', name: 'Ayodhya', image: '/api/image?query=Ayodhya%20temple', imageHint: 'Ayodhya temple' } 
     ] 
   },
 ];
