@@ -2,6 +2,7 @@
 import { createApi } from 'unsplash-js';
 
 // Initialize Unsplash API client
+// This is the standard Next.js way to access server-side environment variables.
 const unsplash = createApi({
   accessKey: process.env.UNSPLASH_ACCESS_KEY!,
 });
@@ -16,11 +17,14 @@ async function fetchImage(query: string, w: number, h: number): Promise<string> 
         const result = await unsplash.search.getPhotos({ query, perPage: 1, orientation: 'landscape' });
         if (result.response && result.response.results.length > 0) {
             const photo = result.response.results[0];
-            return `${photo.urls.raw}&w=${w}&h=${h}&fit=crop`;
+            // Using the regular URL for better quality and appending parameters
+            return `${photo.urls.regular}&w=${w}&h=${h}&fit=crop`;
         }
+        console.warn(`No Unsplash image found for query "${query}". Using fallback.`);
         return fallbackUrl;
-    } catch (error) {
-        console.error(`Unsplash API error for query "${query}":`, error);
+    } catch (error: any) {
+        // Log a more detailed error message
+        console.error(`Unsplash API error for query "${query}":`, error.message || error);
         return fallbackUrl;
     }
 }
