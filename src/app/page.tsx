@@ -12,7 +12,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center text-center text-white">
         <div className="absolute inset-0">
           <Image
-            src="https://placehold.co/1920x1080.png"
+            src="https://images.unsplash.com/photo-1534423861389-16b93178a5e1?q=80&w=1920&h=1080&fit=crop"
             alt="Sunrise over the Ganges"
             data-ai-hint="ganges sunrise"
             fill
