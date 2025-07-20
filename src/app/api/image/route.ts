@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
-const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
+const PIXABAY_API_KEY = process.env.PIXABAY_ACCESS_KEY;
 const fallbackUrl = 'https://placehold.co/1024x768.png';
 
 export async function GET(request: NextRequest) {
