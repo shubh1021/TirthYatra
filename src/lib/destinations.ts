@@ -31,7 +31,7 @@ export const destinations: Destination[] = [
     slug: 'ayodhya',
     name: 'Ayodhya',
     description: 'The sacred birthplace of Lord Rama, a city of ancient temples and ghats.',
-    image: 'https://images.unsplash.com/photo-1707731920783-0eabc5457c69?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1705703906394-444155106a72?q=80&w=600&h=800&fit=crop',
     imageHint: 'Ayodhya temple',
     slideshowImages: [
       { url: 'https://images.unsplash.com/photo-1678252554619-a10848a60432?q=80&w=1200&h=800&fit=crop', hint: 'Sarayu river' },
@@ -49,8 +49,8 @@ export const destinations: Destination[] = [
       { date: 'Nov 1, 2024', title: 'Deepotsav', info: 'A spectacular festival of lights.' },
     ],
     nearby: [
-      { id: '2', name: 'Kashi', image: 'https://images.unsplash.com/photo-1544718228-55ce1e3f7c46?q=80&w=400&h=300&fit=crop', imageHint: 'Kashi ghats' },
-      { id: '3', name: 'Mathura', image: 'https://images.unsplash.com/photo-1620138547372-031f7abd577b?q=80&w=400&h=300&fit=crop', imageHint: 'Mathura temple' },
+      { id: '2', name: 'Kashi', image: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=400&h=300&fit=crop', imageHint: 'Kashi ghats' },
+      { id: '3', name: 'Mathura', image: 'https://images.unsplash.com/photo-1610486161491-5c742514125b?q=80&w=400&h=300&fit=crop', imageHint: 'Mathura temple' },
     ],
   },
   {
@@ -58,12 +58,12 @@ export const destinations: Destination[] = [
     slug: 'kashi',
     name: 'Kashi',
     description: 'Varanasi, the spiritual capital of India, a city of ghats, temples, and moksha.',
-    image: 'https://images.unsplash.com/photo-1544718228-55ce1e3f7c46?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=600&h=800&fit=crop',
     imageHint: 'Varanasi ghats',
     slideshowImages: [
-        { url: 'https://images.unsplash.com/photo-1561361513-259c87383a8f?q=80&w=1200&h=800&fit=crop', hint: 'Ganges aarti' },
-        { url: 'https://images.unsplash.com/photo-1528450393792-28a17688c805?q=80&w=1200&h=800&fit=crop', hint: 'Varanasi boats' },
-        { url: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=1200&h=800&fit=crop', hint: 'Kashi Vishwanath' },
+        { url: 'https://images.unsplash.com/photo-1587799194582-7c749479b69b?q=80&w=1200&h=800&fit=crop', hint: 'Ganges aarti' },
+        { url: 'https://images.unsplash.com/photo-1529182390888-8094498357a4?q=80&w=1200&h=800&fit=crop', hint: 'Varanasi boats' },
+        { url: 'https://images.unsplash.com/photo-1565597933979-5e581457f864?q=80&w=1200&h=800&fit=crop', hint: 'Kashi Vishwanath' },
     ],
     history: 'Kashi, also known as Varanasi, is one of the oldest living cities in the world. It has been a center of learning, philosophy, and spirituality for thousands of years.',
     mythology: 'It is believed that Kashi was founded by Lord Shiva. Hindus believe that dying in Kashi brings salvation (moksha), making it a major pilgrimage site.',
@@ -77,7 +77,7 @@ export const destinations: Destination[] = [
     ],
     nearby: [
       { id: '1', name: 'Ayodhya', image: 'https://images.unsplash.com/photo-1707731920783-0eabc5457c69?q=80&w=400&h=300&fit=crop', imageHint: 'Ayodhya temple' },
-      { id: '4', name: 'Dwarka', image: 'https://images.unsplash.com/photo-1664364344421-41243f773417?q=80&w=400&h=300&fit=crop', imageHint: 'Dwarka coast' },
+      { id: '4', name: 'Dwarka', image: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=400&h=300&fit=crop', imageHint: 'Dwarka coast' },
     ],
   },
   {
@@ -85,12 +85,12 @@ export const destinations: Destination[] = [
     slug: 'mathura',
     name: 'Mathura',
     description: 'The vibrant birthplace of Lord Krishna, resonating with tales of his divine life.',
-    image: 'https://images.unsplash.com/photo-1620138547372-031f7abd577b?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1610486161491-5c742514125b?q=80&w=600&h=800&fit=crop',
     imageHint: 'Mathura celebration',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1616238384462-834920275535?q=80&w=1200&h=800&fit=crop', hint: 'Krishna Janmabhoomi' },
         { url: 'https://images.unsplash.com/photo-1594101410474-733a7895defa?q=80&w=1200&h=800&fit=crop', hint: 'Holi festival' },
-        { url: 'https://images.unsplash.com/photo-1610486161491-5c742514125b?q=80&w=1200&h=800&fit=crop', hint: 'Vrindavan temples' },
+        { url: 'https://images.unsplash.com/photo-1620138547372-031f7abd577b?q=80&w=1200&h=800&fit=crop', hint: 'Vrindavan temples' },
     ],
     history: 'Mathura is an ancient city with a history that spans millennia. It has been an important center for art, culture, and religion, particularly Vaishnavism.',
     mythology: 'Mathura is revered as the birthplace of Lord Krishna, a major deity in Hinduism. The nearby town of Vrindavan is where he is said to have spent his childhood.',
@@ -112,12 +112,12 @@ export const destinations: Destination[] = [
     slug: 'dwarka',
     name: 'Dwarka',
     description: 'The legendary kingdom of Lord Krishna, one of the four sacred Char Dham sites.',
-    image: 'https://images.unsplash.com/photo-1621682375895-350742594a97?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=600&h=800&fit=crop',
     imageHint: 'Dwarka temple',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1604655982510-58273a3c20c9?q=80&w=1200&h=800&fit=crop', hint: 'Dwarkadhish temple' },
         { url: 'https://images.unsplash.com/photo-1664364344421-41243f773417?q=80&w=1200&h=800&fit=crop', hint: 'Gomti Ghat' },
-        { url: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=1200&h=800&fit=crop', hint: 'Bet Dwarka' },
+        { url: 'https://images.unsplash.com/photo-1621682375895-350742594a97?q=80&w=1200&h=800&fit=crop', hint: 'Bet Dwarka' },
     ],
     history: 'Ancient Dwarka was a prosperous city that is said to have been submerged by the sea. The modern city is a major pilgrimage hub.',
     mythology: 'Dwarka is identified with the Dwarka Kingdom, the ancient kingdom of Lord Krishna. He is said to have established this city after leaving Mathura.',
@@ -129,8 +129,8 @@ export const destinations: Destination[] = [
       { date: 'Aug 26, 2024', title: 'Janmashtami', info: 'Celebrations are held at the Dwarkadhish Temple.' },
     ],
     nearby: [
-      { id: '2', name: 'Kashi', image: 'https://images.unsplash.com/photo-1544718228-55ce1e3f7c46?q=80&w=400&h=300&fit=crop', imageHint: 'Kashi ghats' },
-      { id: '5', name: 'Rameswaram', image: 'https://images.unsplash.com/photo-1628181679930-b4d458703348?q=80&w=400&h=300&fit=crop', imageHint: 'Rameswaram temple' },
+      { id: '2', name: 'Kashi', image: 'https://images.unsplash.com/photo-1605839958999-e688784d0383?q=80&w=400&h=300&fit=crop', imageHint: 'Kashi ghats' },
+      { id: '5', name: 'Rameswaram', image: 'https://images.unsplash.com/photo-1588623229896-4806a6435c24?q=80&w=400&h=300&fit=crop', imageHint: 'Rameswaram temple' },
     ],
   },
   {
@@ -138,12 +138,12 @@ export const destinations: Destination[] = [
     slug: 'rameswaram',
     name: 'Rameswaram',
     description: 'A holy island town known for its magnificent Ramanathaswamy Temple.',
-    image: 'https://images.unsplash.com/photo-1628181679930-b4d458703348?q=80&w=600&h=800&fit=crop',
+    image: 'https://images.unsplash.com/photo-1588623229896-4806a6435c24?q=80&w=600&h=800&fit=crop',
     imageHint: 'Rameswaram corridor',
     slideshowImages: [
         { url: 'https://images.unsplash.com/photo-1603803233814-4e94116c1410?q=80&w=1200&h=800&fit=crop', hint: 'Ramanathaswamy Temple' },
         { url: 'https://images.unsplash.com/photo-1616892501602-a4e9b88a2c2b?q=80&w=1200&h=800&fit=crop', hint: 'Pamban Bridge' },
-        { url: 'https://images.unsplash.com/photo-1588623229896-4806a6435c24?q=80&w=1200&h=800&fit=crop', hint: 'Dhanushkodi beach' },
+        { url: 'https://images.unsplash.com/photo-1628181679930-b4d458703348?q=80&w=1200&h=800&fit=crop', hint: 'Dhanushkodi beach' },
     ],
     history: 'Rameswaram has been a pilgrimage center for centuries, with its temple being a fine example of Dravidian architecture.',
     mythology: 'Lord Rama is said to have built a bridge (Rama Setu) from here to Lanka to rescue his wife Sita. He also worshipped Lord Shiva here to atone for killing Ravana.',
@@ -155,8 +155,8 @@ export const destinations: Destination[] = [
       { date: 'Mar 7, 2025', title: 'Maha Shivaratri', info: 'A night of prayer and festivities for Lord Shiva.' },
     ],
     nearby: [
-      { id: '3', name: 'Mathura', image: 'https://images.unsplash.com/photo-1620138547372-031f7abd577b?q=80&w=400&h=300&fit=crop', imageHint: 'Mathura holi' },
-      { id: '4', name: 'Dwarka', image: 'https://images.unsplash.com/photo-1664364344421-41243f773417?q=80&w=400&h=300&fit=crop', imageHint: 'Dwarka coast' },
+      { id: '3', name: 'Mathura', image: 'https://images.unsplash.com/photo-1610486161491-5c742514125b?q=80&w=400&h=300&fit=crop', imageHint: 'Mathura holi' },
+      { id: '4', name: 'Dwarka', image: 'https://images.unsplash.com/photo-1691244309849-d7543a758509?q=80&w=400&h=300&fit=crop', imageHint: 'Dwarka coast' },
     ],
   },
 ];
