@@ -8,7 +8,7 @@ import { getAllDestinations } from '@/lib/destinations';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 
-const HERO_IMAGE_URL = "https://placehold.co/1920x1080.png";
+const HERO_IMAGE_URL = "https://images.unsplash.com/photo-1587799194582-7c749479b69b?q=80&w=2070&auto=format&fit=crop";
 
 export default async function Home() {
   const destinations = await getAllDestinations();
