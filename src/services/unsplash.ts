@@ -1,12 +1,16 @@
 // @ts-nocheck
 'use server';
 
+import * as dotenv from 'dotenv';
 import { createApi } from 'unsplash-js';
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Cache to avoid hitting API rate limits during development
 const imageCache = new Map();
 
-// Initialize the Unsplash client. Next.js automatically makes variables from .env available via process.env.
+// Initialize the Unsplash client.
 const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
 
 const unsplash = unsplashAccessKey

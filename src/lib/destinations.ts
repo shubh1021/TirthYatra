@@ -141,6 +141,8 @@ const destinationData = [
 
 // In-memory cache to avoid re-fetching images on every request during development
 const destinationCache = new Map<string, Destination>();
+const nearbyImageCache = new Map<string, string>();
+
 
 async function enrichDestination(destination: any): Promise<Destination> {
   if (destinationCache.has(destination.id)) {
@@ -159,10 +161,15 @@ async function enrichDestination(destination: any): Promise<Destination> {
 
   const nearbyWithImages = await Promise.all(
     destination.nearby.map(async (place) => {
+      if (nearbyImageCache.has(place.id)) {
+          return { ...place, image: nearbyImageCache.get(place.id)! };
+      }
       const [nearbyImage] = await getImages(place.imageHint, 1, 'squarish');
+      const imageUrl = nearbyImage?.urls?.small || 'https://placehold.co/400x300.png';
+      nearbyImageCache.set(place.id, imageUrl);
       return {
         ...place,
-        image: nearbyImage?.urls?.small || 'https://placehold.co/400x300.png',
+        image: imageUrl,
       };
     })
   );
@@ -189,11 +196,14 @@ export async function getDestinationBySlug(slug: string): Promise<Destination | 
   return enrichDestination(destination);
 }
 
-export async function getDestinationById(id: string): Promise<Destination | undefined> {
-  const destination = destinationData.find((d) => d.id === id);
-  if (!destination) return undefined;
-  // This might fetch full details when only a nearby image is needed, but simplifies the logic
-  // and leverages the cache.
-  const enriched = await enrichDestination(destination);
-  return enriched;
+export function getDestinationById(id: string) {
+    const destination = destinationData.find((d) => d.id === id);
+    if (!destination) return undefined;
+
+    const imageUrl = nearbyImageCache.get(id) || 'https://placehold.co/400x300.png';
+
+    return {
+        ...destination,
+        image: imageUrl,
+    };
 }
