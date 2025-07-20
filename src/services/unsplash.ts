@@ -2,14 +2,15 @@
 'use server';
 
 import { createApi } from 'unsplash-js';
-import { env } from 'process';
 
-if (!env.UNSPLASH_ACCESS_KEY) {
+const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+
+if (!unsplashAccessKey) {
   console.log('Unsplash API key not found. Image fetching will be disabled.');
 }
 
 const unsplash = createApi({
-  accessKey: env.UNSPLASH_ACCESS_KEY || '',
+  accessKey: unsplashAccessKey || '',
 });
 
 // Cache to avoid hitting API rate limits during development
@@ -25,13 +26,17 @@ export async function getImages(
     return imageCache.get(cacheKey);
   }
 
-  if (!env.UNSPLASH_ACCESS_KEY) {
+  if (!unsplashAccessKey) {
     console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
     return Array(count).fill({
         urls: {
-            regular: `https://placehold.co/1200x800.png?text=${query.replace(/\s/g, '+')}`,
-            small: `https://placehold.co/400x300.png?text=${query.replace(/\s/g, '+')}`
-        }
+            regular: `https://placehold.co/1200x800.png`,
+            small: `https://placehold.co/400x300.png`
+        },
+        user: {
+          name: 'Placeholder Image'
+        },
+        alt_description: query,
     });
   }
 
@@ -64,8 +69,8 @@ export async function getHomepageHeroImage() {
         return imageCache.get(cacheKey);
     }
 
-    if (!env.UNSPLASH_ACCESS_KEY) {
-        return 'https://placehold.co/1920x1080.png?text=ganges+sunrise';
+    if (!unsplashAccessKey) {
+        return 'https://placehold.co/1920x1080.png';
     }
 
     try {
