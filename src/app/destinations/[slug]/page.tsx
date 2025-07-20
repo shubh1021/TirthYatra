@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getDestinationBySlug, getDestinationById, destinations } from '@/lib/destinations';
+import { getDestinationBySlug, getDestinationById, getAllDestinations } from '@/lib/destinations';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Users, BookOpen, MapPin } from 'lucide-react';
@@ -13,19 +13,20 @@ type DestinationPageProps = {
 };
 
 export async function generateStaticParams() {
+  const destinations = await getAllDestinations();
   return destinations.map((destination) => ({
     slug: destination.slug,
   }));
 }
 
-export default function DestinationPage({ params }: DestinationPageProps) {
-  const destination = getDestinationBySlug(params.slug);
+export default async function DestinationPage({ params }: DestinationPageProps) {
+  const destination = await getDestinationBySlug(params.slug);
 
   if (!destination) {
     notFound();
   }
-
-  const nearbyPlaces = destination.nearby.map(n => getDestinationById(n.id)).filter(Boolean);
+  
+  const nearbyPlaces = destination.nearby;
 
   return (
     <div className="bg-background">
@@ -122,7 +123,7 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {nearbyPlaces.map(place => place && (
-              <Link href={`/destinations/${place.slug}`} key={place.id}>
+              <Link href={`/destinations/${getDestinationById(place.id)?.slug}`} key={place.id}>
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   <div className="relative h-60 w-full">
                     <Image

@@ -3,16 +3,22 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { destinations } from '@/lib/destinations';
+import { getAllDestinations } from '@/lib/destinations';
+import { getHomepageHeroImage } from '@/services/unsplash';
 
-export default function Home() {
+export default async function Home() {
+  const [destinations, heroImageUrl] = await Promise.all([
+    getAllDestinations(),
+    getHomepageHeroImage()
+  ]);
+
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-center text-white">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1534423861389-16b93178a5e1?q=80&w=1920&h=1080&fit=crop"
+            src={heroImageUrl}
             alt="Sunrise over the Ganges"
             data-ai-hint="ganges sunrise"
             fill
