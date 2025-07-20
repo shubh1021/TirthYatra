@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 210 17% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 30 87% 67%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 45 62% 52%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 30 87% 67%;
+    --background: 45 67% 95%; /* #fbe6c2 */
+    --foreground: 24 67% 10%; /* #351e0b - A bit darker than pure brown for text */
+    --card: 45 67% 97%; /* Lighter version of background for cards */
+    --card-foreground: 24 67% 10%;
+    --popover: 45 67% 97%;
+    --popover-foreground: 24 67% 10%;
+    --primary: 29 70% 55%; /* #e0a458 */
+    --primary-foreground: 10 78% 9%; /* Dark brown for text on primary */
+    --secondary: 40 50% 90%; /* #f0e6d9 - a soft cream */
+    --secondary-foreground: 24 67% 10%;
+    --muted: 40 50% 85%; /* #e6dace */
+    --muted-foreground: 24 50% 30%;
+    --accent: 10 61% 31%; /* #822e1c */
+    --accent-foreground: 45 67% 95%; /* background color for text on accent */
+    --destructive: 0 72% 51%; /* A standard red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 29 70% 85%; /* Lighter version of primary */
+    --input: 29 70% 90%; /* Even lighter version of primary */
+    --ring: 29 70% 55%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 30 87% 67%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 45 62% 52%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 30 87% 67%;
+    --background: 20 12% 10%; /* #201e1c - Dark brown */
+    --foreground: 45 67% 95%; /* #fbe6c2 */
+    --card: 20 12% 12%; /* #262321 */
+    --card-foreground: 45 67% 95%;
+    --popover: 20 12% 10%;
+    --popover-foreground: 45 67% 95%;
+    --primary: 29 70% 55%; /* #e0a458 */
+    --primary-foreground: 10 78% 9%;
+    --secondary: 10 61% 21%; /* Darker version of accent #5a2013 */
+    --secondary-foreground: 45 67% 95%;
+    --muted: 10 61% 25%; /* #6d2617 */
+    --muted-foreground: 40 50% 80%;
+    --accent: 29 70% 65%; /* #e8b678 - Lighter primary for accent in dark mode */
+    --accent-foreground: 10 78% 9%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 10 61% 21%;
+    --input: 10 61% 21%;
+    --ring: 29 70% 55%;
   }
 }
 
@@ -55,5 +55,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: url('/background-pattern.svg');
+    background-repeat: repeat;
   }
 }

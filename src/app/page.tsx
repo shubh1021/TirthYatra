@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getAllDestinations } from '@/lib/destinations';
 import { getHomepageHeroImage } from '@/services/unsplash';
+import { Suspense } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default async function Home() {
   const [destinations, heroImageUrl] = await Promise.all([
@@ -17,14 +19,17 @@ export default async function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-center text-white">
         <div className="absolute inset-0">
-          <Image
-            src={heroImageUrl}
-            alt="Sunrise over the Ganges"
-            data-ai-hint="ganges sunrise"
-            fill
-            className="object-cover"
-            priority
-          />
+          <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
+            <Image
+              src={heroImageUrl}
+              alt="Indian temple architecture"
+              data-ai-hint="indian temple architecture"
+              fill
+              className="object-cover"
+              priority
+              loading="eager"
+            />
+          </Suspense>
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 animate-fade-in px-4">
@@ -35,7 +40,7 @@ export default async function Home() {
             Curated divine experiences for global explorers.
           </p>
           <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="/trip-planner">Plan My Trip</Link>
+            <Link href="#destinations">Explore Destinations</Link>
           </Button>
         </div>
       </section>
@@ -43,13 +48,12 @@ export default async function Home() {
       {/* Destinations Carousel Section */}
       <section id="destinations" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-headline text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-headline text-center mb-12 text-primary">
             Discover Sacred Destinations
           </h2>
           <Carousel
             opts={{
               align: 'start',
-              loop: true,
             }}
             className="w-full"
           >
@@ -77,7 +81,7 @@ export default async function Home() {
                           </CardTitle>
                         </CardHeader>
                         <CardContent className="p-4">
-                          <p className="text-muted-foreground">{destination.description}</p>
+                          <p className="text-muted-foreground line-clamp-3">{destination.description}</p>
                         </CardContent>
                       </Card>
                     </Link>

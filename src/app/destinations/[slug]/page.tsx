@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getDestinationBySlug, getDestinationById, getAllDestinations } from '@/lib/destinations';
+import { Suspense } from 'react';
+import { getDestinationBySlug, getAllDestinations, getDestinationById } from '@/lib/destinations';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Users, BookOpen, MapPin } from 'lucide-react';
+import { Calendar, Users, BookOpen, MapPin, Loader2 } from 'lucide-react';
+import NewsFeed from '@/components/news-feed';
+import ChatbotPlanner from '@/components/chatbot-planner';
 
 type DestinationPageProps = {
   params: {
@@ -36,14 +39,17 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
           <CarouselContent className="h-full">
             {destination.slideshowImages.map((img, index) => (
               <CarouselItem key={index} className="h-full">
-                <Image
-                  src={img.url}
-                  alt={`${destination.name} view ${index + 1}`}
-                  data-ai-hint={img.hint}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                />
+                 <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
+                    <Image
+                      src={img.url}
+                      alt={`${destination.name} view ${index + 1}`}
+                      data-ai-hint={img.hint}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                      loading={index > 0 ? 'lazy' : 'eager'}
+                    />
+                 </Suspense>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -74,7 +80,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
 
             <section className="mt-12">
               <h2 className="text-3xl font-headline text-primary flex items-center gap-2">
-                <Calendar /> Upcoming Events
+                <Calendar /> Upcoming Events & Festivals
               </h2>
               <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {destination.events.map((event, index) => (
@@ -90,10 +96,21 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                 ))}
               </div>
             </section>
+
+            <section className="mt-12">
+                 <Suspense fallback={
+                    <div className="flex justify-center items-center h-48">
+                        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                        <p className="ml-4 text-muted-foreground">Loading News...</p>
+                    </div>
+                 }>
+                    <NewsFeed destinationName={destination.name} />
+                 </Suspense>
+            </section>
           </div>
 
           {/* Right/Sidebar Column */}
-          <aside className="lg:sticky top-24 self-start">
+          <aside className="lg:sticky top-24 self-start space-y-8">
             <Card className="bg-secondary/50">
               <CardHeader>
                 <CardTitle className="text-2xl font-headline text-primary flex items-center gap-2">
@@ -113,6 +130,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                 </div>
               </CardContent>
             </Card>
+             <Suspense fallback={<div className="flex justify-center items-center h-48"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>}>
+                <ChatbotPlanner />
+             </Suspense>
           </aside>
         </div>
 
@@ -122,8 +142,12 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             <MapPin /> Explore Nearby
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {nearbyPlaces.map(place => place && (
-              <Link href={`/destinations/${getDestinationById(place.id)?.slug}`} key={place.id}>
+            {nearbyPlaces.map(place => {
+              const nearbyDestination = getDestinationById(place.id);
+              if (!nearbyDestination) return null;
+              
+              return (
+              <Link href={`/destinations/${nearbyDestination.slug}`} key={place.id}>
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   <div className="relative h-60 w-full">
                     <Image
@@ -140,7 +164,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                   </div>
                 </Card>
               </Link>
-            ))}
+            )})}
           </div>
         </section>
       </div>
