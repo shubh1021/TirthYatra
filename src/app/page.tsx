@@ -12,7 +12,7 @@ import { Loader2 } from 'lucide-react';
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImageUrl = heroDestination?.slideshowImages[0]?.url || `https://placehold.co/2070x1380.png`;
+  const heroImageUrl = heroDestination?.slideshowImages[0]?.url || `/api/image?query=indian%20temple%20architecture`;
 
   return (
     <>
