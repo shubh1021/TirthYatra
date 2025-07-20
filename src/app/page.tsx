@@ -12,9 +12,9 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center text-center text-white">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1629683952290-71954c86b62e?q=80&w=1920&h=1080&fit=crop"
-            alt="Sunrise over Ayodhya"
-            data-ai-hint="sunrise Ayodhya"
+            src="https://images.unsplash.com/photo-1561361513-259c87383a8f?q=80&w=1920&h=1080&fit=crop"
+            alt="Sunrise over the Ganges"
+            data-ai-hint="ganges sunrise"
             fill
             className="object-cover"
             priority
