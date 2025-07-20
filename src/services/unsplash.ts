@@ -2,27 +2,18 @@
 'use server';
 
 import { createApi } from 'unsplash-js';
-import { config } from 'dotenv';
-
-// Load environment variables from .env file
-config();
 
 // Cache to avoid hitting API rate limits during development
 const imageCache = new Map();
 
-// Initialize the Unsplash client inside a function to ensure process.env is available.
-const getUnsplashClient = () => {
-  const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+// Initialize the Unsplash client. Next.js automatically makes variables from .env available via process.env.
+const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
 
-  if (!unsplashAccessKey) {
-    console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
-    return null;
-  }
-  
-  return createApi({
-    accessKey: unsplashAccessKey,
-  });
-};
+const unsplash = unsplashAccessKey
+  ? createApi({
+      accessKey: unsplashAccessKey,
+    })
+  : null;
 
 export async function getImages(
   query: string,
@@ -34,9 +25,9 @@ export async function getImages(
     return imageCache.get(cacheKey);
   }
 
-  const unsplash = getUnsplashClient();
-
+  // If the Unsplash client isn't configured, return placeholders.
   if (!unsplash) {
+    console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
     const width = orientation === 'portrait' ? 600 : (orientation === 'squarish' ? 400 : 1200);
     const height = orientation === 'portrait' ? 800 : (orientation === 'squarish' ? 400 : 800);
     
@@ -67,6 +58,7 @@ export async function getImages(
 
     const photos = result.response.results;
     if (photos.length > 0) {
+      // Only cache successful results
       imageCache.set(cacheKey, photos);
     }
     return photos;
@@ -82,10 +74,9 @@ export async function getHomepageHeroImage() {
     if (imageCache.has(cacheKey)) {
         return imageCache.get(cacheKey);
     }
-
-    const unsplash = getUnsplashClient();
+    
     if (!unsplash) {
-        return 'https://placehold.co/1920x1080.png';
+      return 'https://placehold.co/1920x1080.png';
     }
 
     try {
