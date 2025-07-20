@@ -3,18 +3,20 @@
 
 import { createApi } from 'unsplash-js';
 
-const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
-
-if (!unsplashAccessKey) {
-  console.log('Unsplash API key not found. Image fetching will be disabled.');
-}
-
-const unsplash = createApi({
-  accessKey: unsplashAccessKey || '',
-});
-
 // Cache to avoid hitting API rate limits during development
 const imageCache = new Map();
+
+// Initialize the Unsplash client inside the function to ensure process.env is available.
+const getUnsplashClient = () => {
+  const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+  if (!unsplashAccessKey) {
+    console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
+    return null;
+  }
+  return createApi({
+    accessKey: unsplashAccessKey,
+  });
+};
 
 export async function getImages(
   query: string,
@@ -26,8 +28,9 @@ export async function getImages(
     return imageCache.get(cacheKey);
   }
 
-  if (!unsplashAccessKey) {
-    console.warn('UNSPLASH_ACCESS_KEY is not set. Returning placeholder images.');
+  const unsplash = getUnsplashClient();
+
+  if (!unsplash) {
     return Array(count).fill({
         urls: {
             regular: `https://placehold.co/1200x800.png`,
@@ -54,7 +57,9 @@ export async function getImages(
     }
 
     const photos = result.response.results;
-    imageCache.set(cacheKey, photos);
+    if (photos.length > 0) {
+      imageCache.set(cacheKey, photos);
+    }
     return photos;
   } catch (error) {
     console.error('Failed to fetch images from Unsplash:', error);
@@ -69,7 +74,8 @@ export async function getHomepageHeroImage() {
         return imageCache.get(cacheKey);
     }
 
-    if (!unsplashAccessKey) {
+    const unsplash = getUnsplashClient();
+    if (!unsplash) {
         return 'https://placehold.co/1920x1080.png';
     }
 
@@ -82,6 +88,7 @@ export async function getHomepageHeroImage() {
         }
         return 'https://placehold.co/1920x1080.png';
     } catch(e) {
+        console.error('Error fetching homepage hero image:', e);
         return 'https://placehold.co/1920x1080.png';
     }
 }
