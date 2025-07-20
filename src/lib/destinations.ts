@@ -46,7 +46,7 @@ const destinationsData = [
   { id: '10', slug: 'kedarnath', name: 'Kedarnath', description: 'A majestic Himalayan temple dedicated to Lord Shiva, part of the Char Dham Yatra.', imageHint: 'Kedarnath temple Himalayas', history: 'An ancient temple that has stood for over a thousand years amidst the challenging Himalayan terrain, rebuilt after the 2013 floods.', mythology: 'Believed to have been built by the Pandavas to atone for their sins after the Mahabharata war. It is one of the 12 Jyotirlingas.', etiquette: { dressCode: 'Warm layered clothing is essential due to the high altitude and cold weather.', tips: ['Acclimatize properly to avoid altitude sickness.', 'The temple is only open for about six months a year (typically Apr-Nov).', 'The journey involves a significant trek; pony and helicopter services are available.'] }, events: [ { date: 'May 10, 2025 (Tentative)', title: 'Temple Opening', info: 'The ceremonial opening of the temple doors after winter.' } ], nearby: [ { id: '6', name: 'Haridwar & Rishikesh', imageHint: 'Haridwar Ganges river' }, { id: '2', name: 'Kashi (Varanasi)', imageHint: 'Varanasi ghats India' }, { id: '1', name: 'Ayodhya', imageHint: 'Ayodhya temple India' } ] },
 ];
 
-async function fetchImage(query: string, w: number, h: number): Promise<string> {
+export async function fetchImage(query: string, w: number, h: number): Promise<string> {
     const fallbackUrl = `https://placehold.co/${w}x${h}.png`;
     if (!process.env.UNSPLASH_ACCESS_KEY) {
         console.warn("Unsplash API key not found. Using fallback images.");

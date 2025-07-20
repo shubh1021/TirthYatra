@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getNewsFeed, type NewsFeedOutput } from '@/ai/flows/news-feed-flow';
+import { fetchImage } from '@/lib/destinations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Newspaper, Loader2 } from 'lucide-react';
@@ -21,11 +22,12 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
       setIsLoading(true);
       try {
         const newsData = await getNewsFeed({ destinationName });
-        const newsWithImages = newsData.newsItems.map((item, index) => ({
-            ...item,
-            // Using placeholders as dynamic image generation is out of scope
-            imageUrl: `https://placehold.co/800x600.png?text=${encodeURIComponent(item.headline)}`
-        }));
+        const newsWithImages = await Promise.all(
+            newsData.newsItems.map(async (item) => ({
+                ...item,
+                imageUrl: await fetchImage(item.imageQuery, 800, 600)
+            }))
+        );
         setNews(newsWithImages);
       } catch (error) {
         console.error("Failed to fetch news feed:", error);
@@ -75,6 +77,7 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
                   <Image
                     src={item.imageUrl}
                     alt={item.headline}
+                    data-ai-hint={item.imageQuery}
                     fill
                     className="object-cover"
                     loading="lazy"
