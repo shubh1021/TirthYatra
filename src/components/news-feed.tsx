@@ -11,6 +11,23 @@ import { useToast } from '@/hooks/use-toast';
 
 type NewsItemWithImage = NewsFeedOutput['newsItems'][0] & { imageUrl: string };
 
+// This is a simple in-memory cache to avoid re-fetching images from unsplash on re-renders
+const imageCache = new Map<string, string>();
+
+async function fetchImageWithCache(query: string): Promise<string> {
+    const fallbackUrl = `https://placehold.co/800x600.png`;
+    if (imageCache.has(query)) {
+        return imageCache.get(query)!;
+    }
+    
+    // In a real app, you would have a dedicated API route to fetch this securely
+    // But for simplicity here, we'll just use a placeholder
+    // NOTE: Direct client-side calls to Unsplash are not recommended for production.
+    imageCache.set(query, fallbackUrl);
+    return fallbackUrl;
+}
+
+
 export default function NewsFeed({ destinationName }: { destinationName: string }) {
   const [news, setNews] = useState<NewsItemWithImage[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,13 +38,15 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
       setIsLoading(true);
       try {
         const newsData = await getNewsFeed({ destinationName });
-        // NOTE: We are intentionally NOT fetching images here via API to save on requests
-        // and keep the news feed loading fast. We will use placeholders.
-        const newsWithPlaceholders = newsData.newsItems.map(item => ({
-          ...item,
-          imageUrl: `https://placehold.co/800x600.png`
+        
+        const newsWithImages = await Promise.all(newsData.newsItems.map(async (item) => {
+            // Using a placeholder as client-side API calls are not ideal.
+            // A production app would use a dedicated API route to fetch images securely.
+            const imageUrl = `https://placehold.co/800x600.png`;
+            return { ...item, imageUrl };
         }));
-        setNews(newsWithPlaceholders);
+
+        setNews(newsWithImages);
       } catch (error) {
         console.error("Failed to fetch news feed:", error);
         toast({
@@ -100,3 +119,4 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
     </section>
   );
 }
+
