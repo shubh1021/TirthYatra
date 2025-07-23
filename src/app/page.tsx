@@ -62,9 +62,8 @@ export default async function Home() {
                 <CarouselItem key={destination.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Link href={`/destinations/${destination.slug}`}>
-                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:scale-105">
-                        <CardHeader className="p-0">
-                          <div className="relative h-80 w-full">
+                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:scale-105 h-full flex flex-col">
+                         <div className="relative h-60 w-full">
                             <Image
                               src={destination.image}
                               alt={destination.name}
@@ -75,13 +74,10 @@ export default async function Home() {
                               loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                          </div>
-                          <CardTitle className="absolute bottom-4 left-4 text-2xl font-headline text-white">
-                            {destination.name}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-4">
-                          <p className="text-muted-foreground line-clamp-3">{destination.description}</p>
+                         </div>
+                        <CardContent className="p-4 flex flex-col flex-grow">
+                            <CardTitle className="text-2xl font-headline text-primary mb-2">{destination.name}</CardTitle>
+                            <p className="text-muted-foreground line-clamp-3 flex-grow">{destination.description}</p>
                         </CardContent>
                       </Card>
                     </Link>
