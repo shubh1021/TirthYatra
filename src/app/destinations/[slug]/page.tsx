@@ -36,9 +36,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
     <div className="bg-background">
       {/* Hero Slideshow */}
       <div className="relative h-[60vh] md:h-[70vh] w-full">
-        <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
-          <DestinationCarousel images={destination.slideshowImages} destinationName={destination.name} />
-        </Suspense>
+        <DestinationCarousel images={destination.slideshowImages} destinationName={destination.name} />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-6xl font-headline text-white p-4 rounded-lg bg-black/30 backdrop-blur-sm">
