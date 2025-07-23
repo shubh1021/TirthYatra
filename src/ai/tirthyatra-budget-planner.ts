@@ -34,7 +34,12 @@ export async function aiBudgetPlanner(input: AiBudgetPlannerInput): Promise<AiBu
 
 const prompt = ai.definePrompt({
   name: 'aiBudgetPlannerPrompt',
-  input: {schema: AiBudgetPlannerInputSchema},
+  input: {schema: z.object({
+    budget: z.number(),
+    currency: z.enum(['INR', 'USD']),
+    destinations: z.array(z.string()),
+    destinationsData: z.any(),
+  })},
   output: {schema: AiBudgetPlannerOutputSchema},
   prompt: `You are a highly experienced and spiritual travel guide for "TirthYatra". A user has provided their budget and a list of destinations they wish to visit in India. Your task is to craft a warm, professional, and traditional narrative for their journey.
 
@@ -51,7 +56,7 @@ Based on this, create a story-like itinerary. Weave in the following elements:
 Your tone should be reassuring, deeply respectful of their spiritual quest, and reflect the high quality of service TirthYatra provides. Make it sound like a personal recommendation from an expert who cares about their journey.
 
 Destination Data for context:
-{{#each (lookup . 'destinationsData')}}
+{{#each destinationsData}}
 - Destination: {{this.name}}
   - Events: {{#each this.events}}{{this.title}} ({{this.date}}): {{this.info}}; {{/each}}
   - Mythology: {{this.mythology}}
