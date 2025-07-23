@@ -11,10 +11,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { IndianRupee, DollarSign, Loader2, BookOpen, Calendar, ChevronRight } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { IndianRupee, DollarSign, Loader2, Calendar, ChevronRight } from 'lucide-react';
 import { aiBudgetPlanner, type AiBudgetPlannerOutput } from '@/ai/tirthyatra-budget-planner';
 import { useToast } from '@/hooks/use-toast';
-import { getAllDestinations } from '@/lib/destinations';
+import { getAllDestinations, type Destination } from '@/lib/destinations';
 import { MultiSelect, type MultiSelectOption } from '@/components/ui/multi-select';
 
 const BudgetStepSchema = z.object({
@@ -35,6 +36,7 @@ export default function TripPlannerPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<'INR' | 'USD'>('INR');
   const [destinations, setDestinations] = useState<MultiSelectOption[]>([]);
+  const [allDestinations, setAllDestinations] = useState<Destination[]>([]);
   const { toast } = useToast();
 
   const { register, handleSubmit, setValue, trigger, getValues, watch, formState: { errors } } = useForm<FullFormValues>({
@@ -45,15 +47,16 @@ export default function TripPlannerPage() {
     },
   });
   
-  const selectedDestinations = watch('destinations');
+  const selectedDestinationNames = watch('destinations');
 
   useEffect(() => {
     const fetchDestinations = async () => {
         const fetchedDestinations = await getAllDestinations();
+        setAllDestinations(fetchedDestinations);
         const options = fetchedDestinations.map(d => ({
-        label: d.name,
-        value: d.name,
-        image: d.image
+            label: d.name,
+            value: d.name,
+            image: d.image
         }));
         setDestinations(options);
     };
@@ -68,8 +71,12 @@ export default function TripPlannerPage() {
   };
   
   const getSelectedDestinationImages = () => {
-    if (!destinations.length || !selectedDestinations?.length) return [];
-    return selectedDestinations.map(slug => destinations.find(d => d.value === slug)?.image).filter(Boolean) as string[];
+    if (!allDestinations.length || !selectedDestinationNames?.length) return [];
+    
+    return selectedDestinationNames.flatMap(name => {
+        const dest = allDestinations.find(d => d.name === name);
+        return dest ? dest.slideshowImages : [];
+    });
   }
 
   const onSubmit: SubmitHandler<FullFormValues> = async (data) => {
@@ -188,16 +195,22 @@ export default function TripPlannerPage() {
         <Card className="max-w-3xl mx-auto mt-12 animate-fade-in">
             <CardHeader>
                 <CardTitle className="font-headline text-3xl text-primary">Your Spiritual Journey Awaits</CardTitle>
-                <CardDescription>A personalized narrative for your pilgrimage.</CardDescription>
+                <CardDescription>A personalized narrative for your pilgrimage, with sights from your chosen destinations.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                 <Carousel className="w-full" opts={{ loop: true }}>
+                  <CarouselContent>
                     {getSelectedDestinationImages().map((img, index) => (
-                        <div key={index} className="relative aspect-video rounded-lg overflow-hidden shadow-md">
-                           <Image src={img} alt={`Destination ${index + 1}`} fill className="object-cover" />
+                      <CarouselItem key={index} className="md:basis-1/2">
+                         <div className="relative aspect-video rounded-lg overflow-hidden shadow-md">
+                           <Image src={img.url} alt={img.hint} data-ai-hint={img.hint} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                         </div>
+                      </CarouselItem>
                     ))}
-                </div>
+                  </CarouselContent>
+                  <CarouselPrevious className="left-[-50px]" />
+                  <CarouselNext className="right-[-50px]" />
+                </Carousel>
 
                 <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed">
                     <p>{plannerResult.itinerary}</p>
