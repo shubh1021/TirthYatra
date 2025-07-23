@@ -36,9 +36,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Ayodhya%20Ram%20Mandir',
     imageHint: 'Ayodhya Ram Mandir', 
     slideshowImages: [
-      { url: '/api/image?query=Ayodhya%20Sarayu%20river', hint: 'Ayodhya Sarayu river' },
-      { url: '/api/image?query=ram%20mandir%20architecture', hint: 'ram mandir architecture' },
-      { url: '/api/image?query=Ayodhya%20holy%20ghats', hint: 'Ayodhya holy ghats' }
+      { url: '/api/image?query=Ayodhya%20Sarayu%20river%20sunset', hint: 'Ayodhya Sarayu river' },
+      { url: '/api/image?query=ram%20mandir%20intricate%20carving', hint: 'ram mandir architecture' },
+      { url: '/api/image?query=Ayodhya%20holy%20ghats%20pilgrims', hint: 'Ayodhya holy ghats' },
+      { url: '/api/image?query=devotees%20praying%20ayodhya', hint: 'devotees praying' },
+      { url: '/api/image?query=hanuman%20garhi%20temple', hint: 'hanuman temple' }
     ], 
     history: 'Ayodhya, one of the seven sacred cities of Hinduism, has a rich history dating back to ancient times. It was the capital of the Kosala Kingdom and is deeply intertwined with the epic Ramayana.', 
     mythology: 'According to Hindu mythology, Ayodhya is the birthplace of Lord Rama, the seventh avatar of Vishnu. The city is central to the Ramayana, which narrates his life and journey.', 
@@ -58,9 +60,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Varanasi%20Ganges%20ghats',
     imageHint: 'Varanasi Ganges ghats', 
     slideshowImages: [
-      { url: '/api/image?query=Varanasi%20Ganges%20aarti', hint: 'Varanasi Ganges aarti' },
-      { url: '/api/image?query=Varanasi%20old%20city%20street', hint: 'Varanasi old city street' },
-      { url: '/api/image?query=Varanasi%20sadhu%20meditating', hint: 'Varanasi sadhu meditating' }
+      { url: '/api/image?query=Varanasi%20evening%20Ganges%20aarti', hint: 'Varanasi Ganges aarti' },
+      { url: '/api/image?query=varanasi%20sadhu%20meditating%20ghat', hint: 'Varanasi sadhu meditating' },
+      { url: '/api/image?query=Varanasi%20old%20city%20alleyway', hint: 'Varanasi old city' },
+      { url: '/api/image?query=boats%20on%20ganges%20river', hint: 'boats on ganges' },
+      { url: '/api/image?query=kashi%20vishwanath%20temple%20architecture', hint: 'Kashi Vishwanath temple' }
     ], 
     history: 'Kashi, also known as Varanasi, is one of the oldest living cities in the world. It has been a center of learning, philosophy, and spirituality for thousands of years.', 
     mythology: 'It is believed that Kashi was founded by Lord Shiva. Hindus believe that dying in Kashi brings salvation (moksha), making it a major pilgrimage site.', 
@@ -80,9 +84,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Mathura%20Krishna%20temple',
     imageHint: 'Mathura Krishna temple', 
     slideshowImages: [
-      { url: '/api/image?query=Vrindavan%20Holi%20festival', hint: 'Vrindavan Holi festival' },
-      { url: '/api/image?query=Mathura%20Krishna%20idol', hint: 'Mathura Krishna idol' },
-      { url: '/api/image?query=Vrindavan%20ISKCON%20devotees', hint: 'Vrindavan ISKCON devotees' }
+      { url: '/api/image?query=Vrindavan%20Holi%20festival%20colors', hint: 'Vrindavan Holi festival' },
+      { url: '/api/image?query=Mathura%20Krishna%20deity%20worship', hint: 'Mathura Krishna idol' },
+      { url: '/api/image?query=Vrindavan%20ISKCON%20temple%20kirtan', hint: 'Vrindavan ISKCON devotees' },
+      { url: '/api/image?query=banke%20bihari%20temple%20vrindavan', hint: 'Banke Bihari Temple' },
+      { url: '/api/image?query=prem%20mandir%20vrindavan%20lights', hint: 'Prem Mandir Vrindavan' }
     ], 
     history: 'Mathura is an ancient city with a history that spans millennia. It has been an important center for art, culture, and religion, particularly Vaishnavism.', 
     mythology: 'Mathura is revered as the birthplace of Lord Krishna. The nearby town of Vrindavan is where he is said to have spent his childhood, filled with divine tales and leelas.', 
@@ -102,9 +108,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Dwarka%20Gujarat%20temple',
     imageHint: 'Dwarka Gujarat temple', 
     slideshowImages: [
-      { url: '/api/image?query=Dwarkadhish%20stone%20temple', hint: 'Dwarkadhish stone temple' },
-      { url: '/api/image?query=Dwarka%20Arabian%20sea', hint: 'Dwarka Arabian sea' },
-      { url: '/api/image?query=Dwarka%20Gomti%20ghat', hint: 'Dwarka Gomti ghat' }
+      { url: '/api/image?query=Dwarkadhish%20temple%20flag', hint: 'Dwarkadhish stone temple' },
+      { url: '/api/image?query=Dwarka%20coast%20arabian%20sea', hint: 'Dwarka Arabian sea' },
+      { url: '/api/image?query=Dwarka%20Gomti%20ghat%20steps', hint: 'Dwarka Gomti ghat' },
+      { url: '/api/image?query=sudama%20setu%20bridge%20dwarka', hint: 'Sudama Setu bridge' },
+      { url: '/api/image?query=bet%20dwarka%20island%20temple', hint: 'Bet Dwarka temple' }
     ], 
     history: 'Ancient Dwarka was a prosperous city that is said to have been submerged by the sea. The modern city is a major pilgrimage hub for Vaishnavites.', 
     mythology: 'Dwarka is identified with the Dwarka Kingdom, the ancient kingdom of Lord Krishna. He is said to have established this city after leaving Mathura.', 
@@ -124,9 +132,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Rameswaram%20Dravidian%20temple',
     imageHint: 'Rameswaram Dravidian temple', 
     slideshowImages: [
-      { url: '/api/image?query=Pamban%20rail%20bridge', hint: 'Pamban rail bridge' },
-      { url: '/api/image?query=Ramanathaswamy%20temple%20corridor', hint: 'Ramanathaswamy temple corridor' },
-      { url: '/api/image?query=Dhanushkodi%20beach%20ruins', hint: 'Dhanushkodi beach ruins' }
+      { url: '/api/image?query=Pamban%20bridge%20sea%20view', hint: 'Pamban rail bridge' },
+      { url: '/api/image?query=Ramanathaswamy%20temple%20ornate%20corridor', hint: 'Ramanathaswamy temple corridor' },
+      { url: '/api/image?query=Dhanushkodi%20beach%20ocean%20ruins', hint: 'Dhanushkodi beach ruins' },
+      { url: '/api/image?query=rameswaram%20holy%20water%20tank', hint: 'holy water tank' },
+      { url: '/api/image?query=rama%20setu%20adam%27s%20bridge', hint: 'Rama Setu' }
     ], 
     history: 'Rameswaram has been a pilgrimage center for centuries, with its temple being a fine example of Dravidian architecture.', 
     mythology: 'Lord Rama is said to have built a bridge (Rama Setu) from here to Lanka to rescue his wife Sita. He also worshipped Lord Shiva here to atone for killing Ravana.', 
@@ -146,9 +156,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Haridwar%20Ganges%20ceremony',
     imageHint: 'Haridwar Ganges ceremony', 
     slideshowImages: [
-      { url: '/api/image?query=Rishikesh%20yoga%20meditation', hint: 'Rishikesh yoga meditation' },
-      { url: '/api/image?query=Haridwar%20Ganga%20aarti', hint: 'Haridwar Ganga aarti' },
-      { url: '/api/image?query=Rishikesh%20Lakshman%20Jhula%20bridge', hint: 'Rishikesh Lakshman Jhula bridge' }
+      { url: '/api/image?query=Rishikesh%20yoga%20meditation%20ganges', hint: 'Rishikesh yoga meditation' },
+      { url: '/api/image?query=Haridwar%20evening%20Ganga%20aarti', hint: 'Haridwar Ganga aarti' },
+      { url: '/api/image?query=Rishikesh%20Lakshman%20Jhula%20suspension%20bridge', hint: 'Rishikesh Lakshman Jhula' },
+      { url: '/api/image?query=har%20ki%20pauri%20haridwar', hint: 'Har Ki Pauri' },
+      { url: '/api/image?query=rishikesh%20river%20rafting', hint: 'river rafting' }
     ], 
     history: 'Haridwar and Rishikesh are ancient pilgrimage sites. Haridwar is where the Ganges enters the plains, while Rishikesh is known as the "Yoga Capital of the World".', 
     mythology: 'These towns are steeped in Hindu mythology, with numerous temples and ashrams dedicated to various deities. They are the starting point for the Char Dham Yatra of Uttarakhand.', 
@@ -168,9 +180,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Puri%20Jagannath%20Rath%20Yatra',
     imageHint: 'Puri Jagannath Rath Yatra', 
     slideshowImages: [
-      { url: '/api/image?query=Puri%20Rath%20Yatra%20chariot', hint: 'Puri Rath Yatra chariot' },
-      { url: '/api/image?query=Puri%20sandy%20beach', hint: 'Puri sandy beach' },
-      { url: '/api/image?query=Konark%20Sun%20temple', hint: 'Konark Sun temple' }
+      { url: '/api/image?query=Puri%20Rath%20Yatra%20huge%20chariot', hint: 'Puri Rath Yatra chariot' },
+      { url: '/api/image?query=Puri%20golden%20sandy%20beach', hint: 'Puri sandy beach' },
+      { url: '/api/image?query=Konark%20Sun%20temple%20stone%20wheel', hint: 'Konark Sun temple' },
+      { url: '/api/image?query=jagannath%20puri%20temple%20architecture', hint: 'Jagannath temple' },
+      { url: '/api/image?query=puri%20beach%20sunset', hint: 'Puri beach sunset' }
     ], 
     history: 'Puri is one of the Char Dham pilgrimage sites. The Jagannath Temple is an architectural marvel and has been a focal point of Hinduism for centuries.', 
     mythology: 'The temple is dedicated to Lord Jagannath (a form of Krishna), his brother Balabhadra, and sister Subhadra.', 
@@ -190,9 +204,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Tirupati%20temple%20gopuram',
     imageHint: 'Tirupati temple gopuram', 
     slideshowImages: [
-      { url: '/api/image?query=Tirumala%20green%20hills', hint: 'Tirumala green hills' },
-      { url: '/api/image?query=Tirupati%20temple%20ornate%20architecture', hint: 'Tirupati temple ornate architecture' },
-      { url: '/api/image?query=Tirupati%20Venkateswara%20idol', hint: 'Tirupati Venkateswara idol' }
+      { url: '/api/image?query=Tirumala%20hills%20green%20valley', hint: 'Tirumala green hills' },
+      { url: '/api/image?query=Tirupati%20temple%20dravidian%20architecture', hint: 'Tirupati ornate architecture' },
+      { url: '/api/image?query=Tirupati%20venkateswara%20swamy%20idol', hint: 'Tirupati Venkateswara idol' },
+      { url: '/api/image?query=tirupati%20pilgrims%20devotees', hint: 'pilgrims devotees' },
+      { url: '/api/image?query=tirumala%20venkateswara%20temple%20night', hint: 'Tirumala temple night' }
     ], 
     history: 'The temple\'s origins are ancient, with contributions from various dynasties over centuries. It is a masterpiece of Dravidian architecture.', 
     mythology: 'Lord Venkateswara, a form of Vishnu, is believed to have manifested here to save mankind from the trials of the Kali Yuga.', 
@@ -212,9 +228,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Amritsar%20Golden%20Temple',
     imageHint: 'Amritsar Golden Temple', 
     slideshowImages: [
-      { url: '/api/image?query=Golden%20Temple%20at%20night', hint: 'Golden Temple at night' },
-      { url: '/api/image?query=Wagah%20border%20ceremony', hint: 'Wagah border ceremony' },
-      { url: '/api/image?query=Golden%20Temple%20Langar%20kitchen', hint: 'Golden Temple Langar kitchen' }
+      { url: '/api/image?query=Golden%20Temple%20reflection%20at%20night', hint: 'Golden Temple at night' },
+      { url: '/api/image?query=Wagah%20border%20gate%20ceremony', hint: 'Wagah border ceremony' },
+      { url: '/api/image?query=Golden%20Temple%20Langar%20community%20kitchen', hint: 'Golden Temple Langar' },
+      { url: '/api/image?query=jallianwala%20bagh%20memorial', hint: 'Jallianwala Bagh' },
+      { url: '/api/image?query=sikh%20pilgrims%20amritsar', hint: 'Sikh pilgrims' }
     ], 
     history: 'Founded in the 16th century, Amritsar is a city of immense historical and religious importance for Sikhism.', 
     mythology: 'The Golden Temple, or Harmandir Sahib, is the holiest gurdwara of Sikhism, symbolizing equality and brotherhood.', 
@@ -234,9 +252,11 @@ const destinationsData: Destination[] = [
     image: '/api/image?query=Kedarnath%20Himalayan%20temple',
     imageHint: 'Kedarnath Himalayan temple', 
     slideshowImages: [
-      { url: '/api/image?query=Kedarnath%20mountain%20valley', hint: 'Kedarnath mountain valley' },
-      { url: '/api/image?query=Himalayas%20snow%20peaks', hint: 'Himalayas snow peaks' },
-      { url: '/api/image?query=Kedarnath%20Shiva%20temple%20snow', hint: 'Kedarnath Shiva temple snow' }
+      { url: '/api/image?query=Kedarnath%20temple%20mountain%20valley', hint: 'Kedarnath mountain valley' },
+      { url: '/api/image?query=Himalayas%20snow%20covered%20peaks', hint: 'Himalayas snow peaks' },
+      { url: '/api/image?query=Kedarnath%20Shiva%20temple%20in%20snow', hint: 'Kedarnath Shiva temple' },
+      { url: '/api/image?query=vasuki%20tal%20lake%20kedarnath', hint: 'Vasuki Tal Lake' },
+      { url: '/api/image?query=kedarnath%20pilgrimage%20trek', hint: 'pilgrimage trek' }
     ], 
     history: 'An ancient temple that has stood for over a thousand years amidst the challenging Himalayan terrain, rebuilt after the 2013 floods.', 
     mythology: 'Believed to have been built by the Pandavas to atone for their sins after the Mahabharata war. It is one of the 12 Jyotirlingas.', 
