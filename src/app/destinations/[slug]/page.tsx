@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getDestinationBySlug, getAllDestinations, getDestinationById } from '@/lib/destinations';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Users, BookOpen, MapPin, Loader2 } from 'lucide-react';
 import NewsFeed from '@/components/news-feed';
 import ChatbotPlanner from '@/components/chatbot-planner';
+import { DestinationCarousel } from '@/components/destination-carousel';
 
 type DestinationPageProps = {
   params: {
@@ -36,27 +36,9 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
     <div className="bg-background">
       {/* Hero Slideshow */}
       <div className="relative h-[60vh] md:h-[70vh] w-full">
-        <Carousel className="w-full h-full" opts={{ loop: true }}>
-          <CarouselContent className="h-full">
-            {destination.slideshowImages.map((img, index) => (
-              <CarouselItem key={index} className="h-full">
-                 <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
-                    <Image
-                      src={img.url}
-                      alt={`${destination.name} view ${index + 1}`}
-                      data-ai-hint={img.hint}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                      loading={index > 0 ? 'lazy' : 'eager'}
-                    />
-                 </Suspense>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-4" />
-          <CarouselNext className="right-4" />
-        </Carousel>
+        <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
+          <DestinationCarousel images={destination.slideshowImages} destinationName={destination.name} />
+        </Suspense>
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-6xl font-headline text-white p-4 rounded-lg bg-black/30 backdrop-blur-sm">
