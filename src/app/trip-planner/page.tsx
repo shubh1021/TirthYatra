@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -46,14 +47,17 @@ export default function TripPlannerPage() {
   
   const selectedDestinations = watch('destinations');
 
-  useMemo(async () => {
-    const fetchedDestinations = await getAllDestinations();
-    const options = fetchedDestinations.map(d => ({
-      label: d.name,
-      value: d.name,
-      image: d.image
-    }));
-    setDestinations(options);
+  useEffect(() => {
+    const fetchDestinations = async () => {
+        const fetchedDestinations = await getAllDestinations();
+        const options = fetchedDestinations.map(d => ({
+        label: d.name,
+        value: d.name,
+        image: d.image
+        }));
+        setDestinations(options);
+    };
+    fetchDestinations();
   }, []);
 
   const handleNextStep = async () => {
