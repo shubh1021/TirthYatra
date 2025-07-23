@@ -7,31 +7,20 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { getAllDestinations } from '@/lib/destinations';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
+import { HeroSlideshow } from '@/components/hero-slideshow';
 
 
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImageUrl = heroDestination?.slideshowImages[0]?.url || `/api/image?query=indian%20temple%20architecture`;
+  const heroImages = heroDestination?.slideshowImages ?? [{ url: `/api/image?query=indian%20temple%20architecture`, hint: 'indian temple architecture' }];
 
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-center text-white">
-        <div className="absolute inset-0">
-          <Suspense fallback={<div className="w-full h-full bg-secondary flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
-            <Image
-              src={heroImageUrl}
-              alt="Indian temple architecture"
-              data-ai-hint="indian temple architecture"
-              fill
-              className="object-cover"
-              priority
-              loading="eager"
-            />
-          </Suspense>
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        <HeroSlideshow images={heroImages} />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 animate-fade-in px-4">
           <h1 className="text-4xl md:text-6xl font-headline font-bold text-shadow-lg">
             Your Spiritual Journey Starts Here
