@@ -164,7 +164,7 @@ export default function TripPlannerPage() {
                         options={destinations}
                         onValueChange={(value) => setValue('destinations', value)}
                         defaultValue={getValues('destinations')}
-                        placeholder="Select destinations..."
+                        placeholder=""
                         variant="inverted"
                         animation={2}
                     />
