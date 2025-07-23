@@ -22,7 +22,6 @@ export function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/#destinations', label: 'Destinations' },
-    { href: '/services', label: 'Services' },
     { href: '/trip-planner', label: 'AI Trip Planner' },
   ];
 
@@ -45,6 +44,16 @@ export function Header() {
               key={link.href}
               href={link.href}
               className="text-foreground/80 hover:text-primary transition-colors"
+              onClick={(e) => {
+                if (link.href.startsWith('/#')) {
+                  e.preventDefault();
+                  const targetId = link.href.substring(2);
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
             >
               {link.label}
             </Link>
