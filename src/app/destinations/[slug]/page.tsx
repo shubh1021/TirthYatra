@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Users, BookOpen, MapPin, Loader2 } from 'lucide-react';
 import NewsFeed from '@/components/news-feed';
 import ChatbotPlanner from '@/components/chatbot-planner';
-import { DestinationCarousel } from '@/components/destination-carousel';
 
 type DestinationPageProps = {
   params: {
@@ -31,12 +30,20 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   }
   
   const nearbyPlaces = destination.nearby;
+  const heroImage = destination.slideshowImages[0] ?? { url: '/api/image?query=indian%20temple', hint: 'indian temple' };
 
   return (
     <div className="bg-background">
-      {/* Hero Slideshow */}
+      {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] w-full">
-        <DestinationCarousel images={destination.slideshowImages} destinationName={destination.name} />
+        <Image
+          src={heroImage.url}
+          alt={`A view of ${destination.name}`}
+          data-ai-hint={heroImage.hint}
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-6xl font-headline text-white p-4 rounded-lg bg-black/30 backdrop-blur-sm">
