@@ -279,5 +279,3 @@ export function getDestinationById(id: string) {
         imageHint: destination.imageHint,
     };
 }
-
-    
