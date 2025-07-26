@@ -7,7 +7,9 @@ const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
 
 // A fallback image to show when Pixabay fails
 const fallbackImage = async () => {
-    const resp = await fetch('https://placehold.co/1024x768.png');
+    // This is a transparent 1x1 pixel PNG
+    const transparentPixel = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+    const resp = await fetch(transparentPixel);
     return new Response(resp.body, {
         headers: { 'Content-Type': 'image/png' },
     });
