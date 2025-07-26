@@ -8,6 +8,7 @@ import { getAllDestinations } from '@/lib/destinations';
 import { Suspense } from 'react';
 import { Loader2, Plane, Hotel, Car, UserCheck } from 'lucide-react';
 import { HeroSlideshow } from '@/components/hero-slideshow';
+import { flightBookingImageData, accommodationImageData, localTransportImageData, guidedToursImageData } from '@/lib/image-data';
 
 
 const services = [
@@ -15,28 +16,28 @@ const services = [
     icon: Plane,
     title: 'Flight Booking',
     description: 'We help you find the best deals on international and domestic flights to your spiritual destinations.',
-    image: 'https://images.pexels.com/photos/1089306/pexels-photo-1089306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: flightBookingImageData,
     imageHint: 'airplane window view of mountains',
   },
   {
     icon: Hotel,
     title: 'Accommodation',
     description: 'From serene ashrams to comfortable hotels, we arrange stays that suit your budget and preferences.',
-    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: accommodationImageData,
     imageHint: 'luxury hotel lobby with indian design',
   },
   {
     icon: Car,
     title: 'Local Transport',
     description: 'Seamless intercity and local travel arrangements, including private cabs, trains, and more.',
-    image: 'https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: localTransportImageData,
     imageHint: 'car on mountain road in india',
   },
   {
     icon: UserCheck,
     title: 'Guided Tours',
     description: 'Knowledgeable local guides to enrich your experience with history, mythology, and cultural insights.',
-    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: guidedToursImageData,
     imageHint: 'tour guide with tourists at indian temple',
   },
 ];

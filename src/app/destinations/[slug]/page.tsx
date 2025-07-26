@@ -158,4 +158,3 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
       </div>
     </div>
   );
-}
