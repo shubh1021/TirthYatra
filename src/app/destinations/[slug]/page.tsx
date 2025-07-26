@@ -1,6 +1,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Suspense } from 'react';
 import { getDestinationBySlug, getAllDestinations, getDestinationById } from '@/lib/destinations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -29,17 +30,19 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   }
   
   const nearbyPlaces = destination.nearby;
-  const heroImage = destination.slideshowImages[0] ?? { url: `/api/image-generator?prompt=${encodeURIComponent('indian temple')}`, hint: 'indian temple' };
+  const heroImage = destination.slideshowImages[0] ?? { url: `https://placehold.co/1280x720.png`, hint: 'indian temple' };
 
   return (
     <div className="bg-background">
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] w-full">
-        <img
+        <Image
           src={heroImage.url}
           alt={`A view of ${destination.name}`}
           data-ai-hint={heroImage.hint}
           className="w-full h-full object-cover"
+          fill
+          priority
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -127,20 +130,22 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             <MapPin /> Explore Nearby
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {nearbyPlaces.map(place => {
-              const nearbyDestination = getDestinationById(place.id);
+            {nearbyPlaces.map(async place => {
+              const nearbyDestination = await getDestinationById(place.id);
               if (!nearbyDestination) return null;
               
               return (
               <Link href={`/destinations/${nearbyDestination.slug}`} key={place.id}>
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   <div className="relative h-60 w-full">
-                    <img
-                      src={`/api/image-generator?prompt=${encodeURIComponent(place.imageHint)}`}
+                    <Image
+                      src={nearbyDestination.image}
                       alt={place.name}
                       data-ai-hint={place.imageHint}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                      <h3 className="absolute bottom-4 left-4 text-xl font-headline text-white">{place.name}</h3>

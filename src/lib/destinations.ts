@@ -5,8 +5,9 @@ export interface Destination {
   slug: string;
   name: string;
   description: string;
+  image: string;
   imageHint: string;
-  slideshowHints: string[];
+  slideshowImages: { url: string; hint: string; }[];
   history: string;
   mythology: string;
   etiquette: {
@@ -25,7 +26,7 @@ export interface Destination {
   }[];
 }
 
-const destinationsData: Destination[] = [
+const destinationsData: Omit<Destination, 'image' | 'slideshowImages'> & { slideshowHints: string[] }[] = [
   { 
     id: '1', 
     slug: 'ayodhya', 
@@ -33,11 +34,11 @@ const destinationsData: Destination[] = [
     description: 'The sacred birthplace of Lord Rama, a city of ancient temples and ghats on the Sarayu river.', 
     imageHint: 'Ayodhya Ram Mandir grand temple', 
     slideshowHints: [
-      'Sarayu river ayodhya evening aarti',
-      'Ram Mandir evening vibrant lights',
-      'holy ghats india ancient steps',
-      'devotees praying inside temple',
-      'Hanuman Garhi temple hilltop view'
+      'https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/21093514/pexels-photo-21093514/free-photo-of-ram-mandir-in-ayodhya.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/12842145/pexels-photo-12842145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/5428012/pexels-photo-5428012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/21093514/pexels-photo-21093514/free-photo-of-ram-mandir-in-ayodhya.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Ayodhya, one of the seven sacred cities of Hinduism, has a rich history dating back to ancient times. It was the capital of the Kosala Kingdom and is deeply intertwined with the epic Ramayana.', 
     mythology: 'According to Hindu mythology, Ayodhya is the birthplace of Lord Rama, the seventh avatar of Vishnu. The city is central to the Ramayana, which narrates his life and journey.', 
@@ -56,10 +57,10 @@ const destinationsData: Destination[] = [
     description: 'The spiritual capital of India, a mystical city of ghats, ancient temples, and moksha.', 
     imageHint: 'Varanasi Ganga Aarti evening ceremony', 
     slideshowHints: [
-      'sadhu meditating varanasi cinematic',
-      'Varanasi city ghats aerial view',
-      'boats on ganges river sunrise',
-      'Kashi Vishwanath Temple golden spire'
+      'https://images.pexels.com/photos/3889928/pexels-photo-3889928.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/15787493/pexels-photo-15787493/free-photo-of-a-man-in-traditional-clothing-and-a-turban.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/2908175/pexels-photo-2908175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Kashi, also known as Varanasi, is one of the oldest living cities in the world. It has been a center of learning, philosophy, and spirituality for thousands of years.', 
     mythology: 'It is believed that Kashi was founded by Lord Shiva. Hindus believe that dying in Kashi brings salvation (moksha), making it a major pilgrimage site.', 
@@ -78,10 +79,10 @@ const destinationsData: Destination[] = [
     description: 'The vibrant twin holy towns, the birthplace and childhood home of Lord Krishna.', 
     imageHint: 'Prem Mandir Vrindavan white marble temple', 
     slideshowHints: [
-      'Holi festival india vibrant colors',
-      'Krishna idol statue ornate',
-      'ISKCON temple vrindavan beautiful architecture',
-      'Banke Bihari Temple devotees crowded'
+      'https://images.pexels.com/photos/19736561/pexels-photo-19736561/free-photo-of-a-temple-with-a-fountain-in-front-of-it.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11901419/pexels-photo-11901419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11656230/pexels-photo-11656230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/5428012/pexels-photo-5428012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Mathura is an ancient city with a history that spans millennia. It has been an important center for art, culture, and religion, particularly Vaishnavism.', 
     mythology: 'Mathura is revered as the birthplace of Lord Krishna. The nearby town of Vrindavan is where he is said to have spent his childhood, filled with divine tales and leelas.', 
@@ -100,9 +101,9 @@ const destinationsData: Destination[] = [
     description: 'The legendary golden kingdom of Lord Krishna, one of the four sacred Char Dham sites.', 
     imageHint: 'Dwarkadhish temple from sea', 
     slideshowHints: [
-      'Dwarka temple at sunset',
-      'Gomti ghat dwarka pilgrims bathing',
-      'Sudama Setu bridge panoramic view'
+      'https://images.pexels.com/photos/12933737/pexels-photo-12933737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/797793/pexels-photo-797793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11333333/pexels-photo-11333333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Ancient Dwarka was a prosperous city that is said to have been submerged by the sea. The modern city is a major pilgrimage hub for Vaishnavites.', 
     mythology: 'Dwarka is identified with the Dwarka Kingdom, the ancient kingdom of Lord Krishna. He is said to have established this city after leaving Mathura.', 
@@ -121,10 +122,10 @@ const destinationsData: Destination[] = [
     description: 'A holy island town known for its magnificent Ramanathaswamy Temple with its grand corridors.', 
     imageHint: 'Rameswaram temple grand corridor', 
     slideshowHints: [
-      'Pamban bridge rameswaram train crossing',
-      'Dhanushkodi beach ruins ghost town',
-      'holy water ritual inside temple',
-      'Adam\'s Bridge Rama Setu satellite view'
+      'https://images.pexels.com/photos/9649527/pexels-photo-9649527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/8432240/pexels-photo-8432240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11051639/pexels-photo-11051639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11051639/pexels-photo-11051639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Rameswaram has been a pilgrimage center for centuries, with its temple being a fine example of Dravidian architecture.', 
     mythology: 'Lord Rama is said to have built a bridge (Rama Setu) from here to Lanka to rescue his wife Sita. He also worshipped Lord Shiva here to atone for killing Ravana.', 
@@ -143,10 +144,10 @@ const destinationsData: Destination[] = [
     description: 'Twin spiritual towns on the banks of the Ganges, the gateway to the Himalayas.', 
     imageHint: 'Haridwar Ganga Aarti fire ceremony', 
     slideshowHints: [
-      'yoga meditation rishikesh by river',
-      'Lakshman Jhula bridge rishikesh',
-      'Har Ki Pauri haridwar evening prayer',
-      'Rishikesh river ganges view mountains'
+      'https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/3721644/pexels-photo-3721644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/14589379/pexels-photo-14589379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Haridwar and Rishikesh are ancient pilgrimage sites. Haridwar is where the Ganges enters the plains, while Rishikesh is known as the "Yoga Capital of the World".', 
     mythology: 'These towns are steeped in Hindu mythology, with numerous temples and ashrams dedicated to various deities. They are the starting point for the Char Dham Yatra of Uttarakhand.', 
@@ -165,9 +166,9 @@ const destinationsData: Destination[] = [
     description: 'Home to the Jagannath Temple, famous for its annual Rath Yatra festival.', 
     imageHint: 'Puri Rath Yatra grand chariot festival', 
     slideshowHints: [
-      'Jagannath temple puri grand entrance',
-      'Konark Sun temple stone chariot odisha',
-      'puri beach sunset fishermen boats'
+      'https://images.pexels.com/photos/8432240/pexels-photo-8432240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/15787493/pexels-photo-15787493/free-photo-of-a-man-in-traditional-clothing-and-a-turban.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/11051639/pexels-photo-11051639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Puri is one of the Char Dham pilgrimage sites. The Jagannath Temple is an architectural marvel and has been a focal point of Hinduism for centuries.', 
     mythology: 'The temple is dedicated to Lord Jagannath (a form of Krishna), his brother Balabhadra, and sister Subhadra.', 
@@ -186,10 +187,10 @@ const destinationsData: Destination[] = [
     description: 'The abode of Lord Venkateswara, one of the most visited and wealthiest pilgrimage centers.', 
     imageHint: 'Tirumala temple golden gopuram', 
     slideshowHints: [
-      'Tirumala hills venkateswara temple complex',
-      'Dravidian temple architecture intricate details',
-      'Lord Venkateswara idol darshan',
-      'pilgrims waiting in line tirumala'
+      'https://images.pexels.com/photos/11051639/pexels-photo-11051639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/9649527/pexels-photo-9649527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/5428012/pexels-photo-5428012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/15787493/pexels-photo-15787493/free-photo-of-a-man-in-traditional-clothing-and-a-turban.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'The temple\'s origins are ancient, with contributions from various dynasties over centuries. It is a masterpiece of Dravidian architecture.', 
     mythology: 'Lord Venkateswara, a form of Vishnu, is believed to have manifested here to save mankind from the trials of the Kali Yuga.', 
@@ -208,9 +209,9 @@ const destinationsData: Destination[] = [
     description: 'The spiritual center for Sikhs, home to the magnificent Golden Temple.', 
     imageHint: 'Golden Temple at night reflection in water', 
     slideshowHints: [
-      'Golden Temple holy pool of nectar',
-      'Langar community kitchen sikhs serving food',
-      'Sikh pilgrims amritsar praying'
+      'https://images.pexels.com/photos/236287/pexels-photo-236287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/9735163/pexels-photo-9735163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/2674064/pexels-photo-2674064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'Founded in the 16th century, Amritsar is a city of immense historical and religious importance for Sikhism.', 
     mythology: 'The Golden Temple, or Harmandir Sahib, is the holiest gurdwara of Sikhism, symbolizing equality and brotherhood.', 
@@ -229,9 +230,9 @@ const destinationsData: Destination[] = [
     description: 'A majestic Himalayan temple dedicated to Lord Shiva, part of the Char Dham Yatra.', 
     imageHint: 'Kedarnath temple in the himalayas', 
     slideshowHints: [
-      'Himalayan mountain valley green landscape',
-      'Vasuki Tal lake crystal clear water',
-      'pilgrimage trek himalayas devotees walking'
+      'https://images.pexels.com/photos/10049479/pexels-photo-10049479.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/15787493/pexels-photo-15787493/free-photo-of-a-man-in-traditional-clothing-and-a-turban.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/3721644/pexels-photo-3721644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     ], 
     history: 'An ancient temple that has stood for over a thousand years amidst the challenging Himalayan terrain, rebuilt after the 2013 floods.', 
     mythology: 'Believed to have been built by the Pandavas to atone for their sins after the Mahabharata war. It is one of the 12 Jyotirlingas.', 
@@ -246,45 +247,38 @@ const destinationsData: Destination[] = [
 ];
 
 
-export async function getAllDestinations(): Promise<Destination[]> {
-    // We need to map over the destinations to add the full image path back for compatibility
-    // with the rest of the app, which expects an `image` property.
-    return destinationsData.map(d => ({
+// This function processes the raw data to add the full image paths
+function processDestinations(data: typeof destinationsData): Destination[] {
+    return data.map(d => ({
         ...d,
-        // This property is being dynamically reconstructed here, but the source of truth is the hint.
-        image: `/api/image-generator?prompt=${encodeURIComponent(d.imageHint)}`,
+        image: d.slideshowHints[0], // Use the first slideshow image as the main image
         slideshowImages: d.slideshowHints.map(hint => ({
-            url: `/api/image-generator?prompt=${encodeURIComponent(hint)}`,
-            hint: hint,
+            url: hint,
+            hint: d.name, // Use destination name as a simple hint
         }))
     }));
 }
 
-export async function getDestinationBySlug(slug: string): Promise<Destination | undefined> {
-    const destination = destinationsData.find((d) => d.slug === slug);
-    if (!destination) return undefined;
-    
-    // Also reconstruct the full image paths here
-    return {
-        ...destination,
-        image: `/api/image-generator?prompt=${encodeURIComponent(destination.imageHint)}`,
-        slideshowImages: destination.slideshowHints.map(hint => ({
-            url: `/api/image-generator?prompt=${encodeURIComponent(hint)}`,
-            hint: hint,
-        }))
-    };
+const processedDestinations: Destination[] = processDestinations(destinationsData);
+
+
+export async function getAllDestinations(): Promise<Destination[]> {
+    return processedDestinations;
 }
 
-export function getDestinationById(id: string) {
-    const destination = destinationsData.find((d) => d.id === id);
+export async function getDestinationBySlug(slug: string): Promise<Destination | undefined> {
+    return processedDestinations.find((d) => d.slug === slug);
+}
+
+export async function getDestinationById(id: string): Promise<Pick<Destination, 'id' | 'slug' | 'name' | 'image' | 'imageHint'> | undefined> {
+    const destination = processedDestinations.find((d) => d.id === id);
     if (!destination) return undefined;
 
     return {
         id: destination.id,
         slug: destination.slug,
         name: destination.name,
-        // Reconstruct image path for nearby places
-        image: `/api/image-generator?prompt=${encodeURIComponent(destination.imageHint)}`, 
+        image: destination.image, 
         imageHint: destination.imageHint,
     };
 }

@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/lib/utils';
@@ -36,7 +37,7 @@ export function HeroSlideshow({ images }: HeroSlideshowProps) {
                     <Loader2 className="h-12 w-12 animate-spin text-primary" />
                 </div>
              )}
-            <img
+            <Image
               src={image.url}
               alt={image.hint}
               data-ai-hint={image.hint}
@@ -44,8 +45,10 @@ export function HeroSlideshow({ images }: HeroSlideshowProps) {
                 "w-full h-full object-cover transition-opacity duration-1000",
                 loadingStates[index] ? 'opacity-0' : 'opacity-100'
                 )}
-              loading={index === 0 ? "eager" : "lazy"}
+              priority={index === 0}
               onLoad={() => handleLoadingComplete(index)}
+              fill
+              sizes="100vw"
             />
           </div>
         ))}
