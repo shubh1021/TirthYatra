@@ -15,28 +15,28 @@ const services = [
     icon: Plane,
     title: 'Flight Booking',
     description: 'We help you find the best deals on international and domestic flights to your spiritual destinations.',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/52/airport-1867622_1280.jpg',
+    image: 'https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageHint: 'airplane window view',
   },
   {
     icon: Hotel,
     title: 'Accommodation',
     description: 'From serene ashrams to comfortable hotels, we arrange stays that suit your budget and preferences.',
-    image: 'https://cdn.pixabay.com/photo/2016/11/18/17/25/asia-1835882_1280.jpg',
+    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageHint: 'luxury hotel lobby',
   },
   {
     icon: Car,
     title: 'Local Transport',
     description: 'Seamless intercity and local travel arrangements, including private cabs, trains, and more.',
-    image: 'https://cdn.pixabay.com/photo/2017/08/17/10/31/taxi-2650893_1280.jpg',
+    image: 'https://images.pexels.com/photos/3830745/pexels-photo-3830745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageHint: 'car mountain road',
   },
   {
     icon: UserCheck,
     title: 'Guided Tours',
     description: 'Knowledgeable local guides to enrich your experience with history, mythology, and cultural insights.',
-    image: 'https://cdn.pixabay.com/photo/2018/02/10/19/22/people-3144547_1280.jpg',
+    image: 'https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageHint: 'tour guide tourists',
   },
 ];
@@ -45,7 +45,7 @@ const services = [
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://cdn.pixabay.com/photo/2021/11/02/18/25/river-6764268_1280.jpg`, hint: 'indian temple architecture' }];
+  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`, hint: 'indian temple architecture' }];
 
   return (
     <>
