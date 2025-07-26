@@ -3,88 +3,88 @@
 // This approach ensures images are unique to the site and load instantly without network requests.
 
 // Main Service Images
-export const flightBookingImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const accommodationImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const localTransportImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const guidedToursImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const flightBookingImageData = "https://placehold.co/600x400.png";
+export const accommodationImageData = "https://placehold.co/600x400.png";
+export const localTransportImageData = "https://placehold.co/600x400.png";
+export const guidedToursImageData = "https://placehold.co/600x400.png";
 
 
 // Destination: Ayodhya
-export const ayodhyaImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const ayodhyaImageData = "https://placehold.co/600x400.png";
 export const ayodhyaSlideshowData = [
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Ayodhya grand temple' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Ayodhya sarayu river' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Ayodhya intricate carvings' },
 ];
 
 // Destination: Kashi (Varanasi)
-export const kashiImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const kashiImageData = "https://placehold.co/600x400.png";
 export const kashiSlideshowData = [
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kashi (Varanasi)' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kashi (Varanasi)' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kashi (Varanasi)' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Varanasi ganges aarti' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Varanasi ancient ghats' },
+  { url: "https://placehold.co/1280x853.png", hint: 'Varanasi spiritual ceremony' },
 ];
 
 // Destination: Mathura & Vrindavan
-export const mathuraVrindavanImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const mathuraVrindavanImageData = "https://placehold.co/600x400.png";
 export const mathuraVrindavanSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Mathura & Vrindavan' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Mathura & Vrindavan' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Mathura & Vrindavan' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Mathura krishna temple' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Vrindavan holi festival' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Prem Mandir lights' },
 ];
 
 // Destination: Dwarka
-export const dwarkaImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const dwarkaImageData = "https://placehold.co/600x400.png";
 export const dwarkaSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarka' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarka' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarka' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Dwarka coastal temple' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Dwarkadhish temple architecture' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Dwarka ocean view' },
 ];
 
 // Destination: Rameswaram
-export const rameswaramImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const rameswaramImageData = "https://placehold.co/600x400.png";
 export const rameswaramSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rameswaram' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rameswaram' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rameswaram' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Rameswaram temple corridors' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Pamban bridge sea' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Rameswaram sacred tank' },
 ];
 
 // Destination: Haridwar & Rishikesh
-export const haridwarRishikeshImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const haridwarRishikeshImageData = "https://placehold.co/600x400.png";
 export const haridwarRishikeshSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Haridwar & Rishikesh' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Haridwar & Rishikesh' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Haridwar & Rishikesh' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Haridwar ganga aarti' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Rishikesh laxman jhula' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Rishikesh yoga meditation' },
 ];
 
 // Destination: Puri
-export const puriImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const puriImageData = "https://placehold.co/600x400.png";
 export const puriSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Puri jagannath temple' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Puri rath yatra' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Puri beach sunset' },
 ];
 
 // Destination: Tirupati
-export const tirupatiImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const tirupatiImageData = "https://placehold.co/600x400.png";
 export const tirupatiSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirupati' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirupati' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirupati' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Tirupati venkateswara temple' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Tirumala hills gopuram' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Tirupati temple complex' },
 ];
 
 // Destination: Amritsar
-export const amritsarImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const amritsarImageData = "https://placehold.co/600x400.png";
 export const amritsarSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Amritsar' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Amritsar' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Amritsar' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Amritsar golden temple' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Golden Temple reflection' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Harmandir Sahib night' },
 ];
 
 // Destination: Kedarnath
-export const kedarnathImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+export const kedarnathImageData = "https://placehold.co/600x400.png";
 export const kedarnathSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Kedarnath temple himalayas' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Kedarnath snowy peaks' },
+    { url: "https://placehold.co/1280x853.png", hint: 'Kedarnath pilgrims journey' },
 ];
