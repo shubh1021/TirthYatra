@@ -1,92 +1,88 @@
+// This file stores the paths to AI-generated images in the public folder.
 
-// This file stores Base64 encoded data URIs for AI-generated images.
-// This approach ensures images are unique to the site and load instantly without network requests.
-
-// Main Service Images
-export const flightBookingImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const accommodationImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const localTransportImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-export const guidedToursImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Main Service Images (Update with actual paths)
+export const flightBookingImageData = "/images/services/flight-booking.jpg";
+export const accommodationImageData = "/images/services/accommodation.jpg";
+export const localTransportImageData = "/images/services/local-transport.jpg";
+export const guidedToursImageData = "/images/services/guided-tours.jpg";
 
 
-// Destination: Ayodhya
-export const ayodhyaImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Ayodhya (Update with actual paths)
+export const ayodhyaImageData = "/images/destinations/ayodhya/ayodhya-temple.jpg";
 export const ayodhyaSlideshowData = [
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya grand temple' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya sarayu river' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Ayodhya intricate carvings' },
+  { url: "/images/destinations/ayodhya/ayodhya-grand-temple.jpg", hint: 'Ayodhya grand temple' },
+  { url: "/images/destinations/ayodhya/ayodhya-sarayu-river.jpg", hint: 'Ayodhya sarayu river' },
+  { url: "/images/destinations/ayodhya/ayodhya-intricate-carvings.jpg", hint: 'Ayodhya intricate carvings' },
 ];
 
-// Destination: Kashi (Varanasi)
-export const kashiImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Kashi (Varanasi) (Update with actual paths)
+export const kashiImageData = "/images/destinations/kashi/kashi-ghats.jpg";
 export const kashiSlideshowData = [
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Varanasi ganges aarti' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Varanasi ancient ghats' },
-  { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Varanasi spiritual ceremony' },
+  { url: "/images/destinations/kashi/varanasi-ganges-aarti.jpg", hint: 'Varanasi ganges aarti' },
+  { url: "/images/destinations/kashi/varanasi-ancient-ghats.jpg", hint: 'Varanasi ancient ghats' },
+  { url: "/images/destinations/kashi/varanasi-spiritual-ceremony.jpg", hint: 'Varanasi spiritual ceremony' },
 ];
 
-// Destination: Mathura & Vrindavan
-export const mathuraVrindavanImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Mathura & Vrindavan (Update with actual paths)
+export const mathuraVrindavanImageData = "/images/destinations/mathura-vrindavan/mathura-vrindavan-temple.jpg";
 export const mathuraVrindavanSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Mathura krishna temple' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Vrindavan holi festival' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Prem Mandir lights' },
+    { url: "/images/destinations/mathura-vrindavan/mathura-krishna-temple.jpg", hint: 'Mathura krishna temple' },
+    { url: "/images/destinations/mathura-vrindavan/vrindavan-holi-festival.jpg", hint: 'Vrindavan holi festival' },
+    { url: "/images/destinations/mathura-vrindavan/prem-mandir-lights.jpg", hint: 'Prem Mandir lights' },
 ];
 
-// Destination: Dwarka
-export const dwarkaImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Dwarka (Update with actual paths)
+export const dwarkaImageData = "/images/destinations/dwarka/dwarka-temple.jpg";
 export const dwarkaSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarka coastal temple' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarkadhish temple architecture' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Dwarka ocean view' },
+    { url: "/images/destinations/dwarka/dwarka-coastal-temple.jpg", hint: 'Dwarka coastal temple' },
+    { url: "/images/destinations/dwarka/dwarkadhish-temple-architecture.jpg", hint: 'Dwarkadhish temple architecture' },
+    { url: "/images/destinations/dwarka/dwarka-ocean-view.jpg", hint: 'Dwarka ocean view' },
 ];
 
-// Destination: Rameswaram
-export const rameswaramImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Rameswaram (Update with actual paths)
+export const rameswaramImageData = "/images/destinations/rameswaram/rameswaram-temple.jpg";
 export const rameswaramSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rameswaram temple corridors' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Pamban bridge sea' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rameswaram sacred tank' },
+    { url: "/images/destinations/rameswaram/rameswaram-temple-corridors.jpg", hint: 'Rameswaram temple corridors' },
+    { url: "/images/destinations/rameswaram/pamban-bridge-sea.jpg", hint: 'Pamban bridge sea' },
+    { url: "/images/destinations/rameswaram/rameswaram-sacred-tank.jpg", hint: 'Rameswaram sacred tank' },
 ];
 
-// Destination: Haridwar & Rishikesh
-export const haridwarRishikeshImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Haridwar & Rishikesh (Update with actual paths)
+export const haridwarRishikeshImageData = "/images/destinations/haridwar-rishikesh/haridwar-rishikesh.jpg";
 export const haridwarRishikeshSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Haridwar ganga aarti' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rishikesh laxman jhula' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Rishikesh yoga meditation' },
+    { url: "/images/destinations/haridwar-rishikesh/haridwar-ganga-aarti.jpg", hint: 'Haridwar ganga aarti' },
+    { url: "/images/destinations/haridwar-rishikesh/rishikesh-laxman-jhula.jpg", hint: 'Rishikesh laxman jhula' },
+    { url: "/images/destinations/haridwar-rishikesh/rishikesh-yoga-meditation.jpg", hint: 'Rishikesh yoga meditation' },
 ];
 
-// Destination: Puri
-export const puriImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Puri (Update with actual paths)
+export const puriImageData = "/images/destinations/puri/puri-temple.jpg";
 export const puriSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri jagannath temple' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri rath yatra' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Puri beach sunset' },
+    { url: "/images/destinations/puri/puri-jagannath-temple.jpg", hint: 'Puri jagannath temple' },
+    { url: "/images/destinations/puri/puri-rath-yatra.jpg", hint: 'Puri rath yatra' },
+    { url: "/images/destinations/puri/puri-beach-sunset.jpg", hint: 'Puri beach sunset' },
 ];
 
-// Destination: Tirupati
-export const tirupatiImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Tirupati (Update with actual paths)
+export const tirupatiImageData = "/images/destinations/tirupati/tirupati-temple.jpg";
 export const tirupatiSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirupati venkateswara temple' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirumala hills gopuram' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Tirupati temple complex' },
+    { url: "/images/destinations/tirupati/tirupati-venkateswara-temple.jpg", hint: 'Tirupati venkateswara temple' },
+    { url: "/images/destinations/tirupati/tirumala-hills-gopuram.jpg", hint: 'Tirumala hills gopuram' },
+    { url: "/images/destinations/tirupati/tirupati-temple-complex.jpg", hint: 'Tirupati temple complex' },
 ];
 
-// Destination: Amritsar
-export const amritsarImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Amritsar (Update with actual paths)
+export const amritsarImageData = "/images/destinations/amritsar/amritsar-golden-temple.jpg";
 export const amritsarSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Amritsar golden temple' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Golden Temple reflection' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Harmandir Sahib night' },
+    { url: "/images/destinations/amritsar/amritsar-golden-temple.jpg", hint: 'Amritsar golden temple' },
+    { url: "/images/destinations/amritsar/golden-temple-reflection.jpg", hint: 'Golden Temple reflection' },
+    { url: "/images/destinations/amritsar/harmandir-sahib-night.jpg", hint: 'Harmandir Sahib night' },
 ];
 
-// Destination: Kedarnath
-export const kedarnathImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+// Destination: Kedarnath (Update with actual paths)
+export const kedarnathImageData = "/images/destinations/kedarnath/kedarnath-temple.jpg";
 export const kedarnathSlideshowData = [
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath temple himalayas' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath snowy peaks' },
-    { url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", hint: 'Kedarnath pilgrims journey' },
+    { url: "/images/destinations/kedarnath/kedarnath-temple-himalayas.jpg", hint: 'Kedarnath temple himalayas' },
+    { url: "/images/destinations/kedarnath/kedarnath-snowy-peaks.jpg", hint: 'Kedarnath snowy peaks' },
+    { url: "/images/destinations/kedarnath/kedarnath-pilgrims-journey.jpg", hint: 'Kedarnath pilgrims journey' },
 ];
-
-    
