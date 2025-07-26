@@ -23,7 +23,7 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
         const newsData = await getNewsFeed({ destinationName });
         
         const newsWithImages = await Promise.all(newsData.newsItems.map(async (item) => {
-            const imageUrl = `/api/image?query=${encodeURIComponent(item.imageQuery)}`;
+            const imageUrl = `/api/image-generator?prompt=${encodeURIComponent(item.imageQuery)}`;
             return { ...item, imageUrl };
         }));
 

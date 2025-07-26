@@ -29,7 +29,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   }
   
   const nearbyPlaces = destination.nearby;
-  const heroImage = destination.slideshowImages[0] ?? { url: 'https://placehold.co/1920x1080.png', hint: 'indian temple' };
+  const heroImage = destination.slideshowImages[0] ?? { url: `/api/image-generator?prompt=${encodeURIComponent('indian temple')}`, hint: 'indian temple' };
 
   return (
     <div className="bg-background">
@@ -136,7 +136,7 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   <div className="relative h-60 w-full">
                     <img
-                      src={place.image}
+                      src={`/api/image-generator?prompt=${encodeURIComponent(place.imageHint)}`}
                       alt={place.name}
                       data-ai-hint={place.imageHint}
                       className="w-full h-full object-cover"

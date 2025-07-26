@@ -14,29 +14,25 @@ const services = [
     icon: Plane,
     title: 'Flight Booking',
     description: 'We help you find the best deals on international and domestic flights to your spiritual destinations.',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/52/airport-1867622_1280.jpg',
-    imageHint: 'airplane window view',
+    imageHint: 'airplane window view of mountains',
   },
   {
     icon: Hotel,
     title: 'Accommodation',
     description: 'From serene ashrams to comfortable hotels, we arrange stays that suit your budget and preferences.',
-    image: 'https://cdn.pixabay.com/photo/2017/08/10/07/22/hotel-2623247_1280.jpg',
-    imageHint: 'luxury hotel lobby',
+    imageHint: 'luxury hotel lobby with indian design',
   },
   {
     icon: Car,
     title: 'Local Transport',
     description: 'Seamless intercity and local travel arrangements, including private cabs, trains, and more.',
-    image: 'https://cdn.pixabay.com/photo/2017/07/22/12/23/bmw-2528343_1280.jpg',
-    imageHint: 'car mountain road',
+    imageHint: 'car on mountain road in india',
   },
   {
     icon: UserCheck,
     title: 'Guided Tours',
     description: 'Knowledgeable local guides to enrich your experience with history, mythology, and cultural insights.',
-    image: 'https://cdn.pixabay.com/photo/2018/02/10/19/22/people-3144547_1280.jpg',
-    imageHint: 'tour guide tourists',
+    imageHint: 'tour guide with tourists at indian temple',
   },
 ];
 
@@ -44,7 +40,7 @@ const services = [
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://cdn.pixabay.com/photo/2020/01/10/11/25/temple-4754605_1280.jpg`, hint: 'indian temple architecture' }];
+  const heroImages = heroDestination?.slideshowImages ?? [{ url: `/api/image-generator?prompt=${encodeURIComponent('indian temple architecture')}`, hint: 'indian temple architecture' }];
 
   return (
     <>
@@ -85,7 +81,7 @@ export default async function Home() {
                       <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col">
                          <div className="relative h-60 w-full">
                             <img
-                              src={destination.image}
+                              src={`/api/image-generator?prompt=${encodeURIComponent(destination.imageHint)}`}
                               alt={destination.name}
                               data-ai-hint={destination.imageHint}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -123,7 +119,7 @@ export default async function Home() {
               <Card key={service.title} className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <div className="relative h-48 w-full">
                   <img
-                    src={service.image}
+                    src={`/api/image-generator?prompt=${encodeURIComponent(service.imageHint)}`}
                     alt={service.title}
                     data-ai-hint={service.imageHint}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
