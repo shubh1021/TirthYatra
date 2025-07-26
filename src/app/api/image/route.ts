@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
         return new Response('Missing query parameter', { status: 400 });
     }
 
-    const API_URL = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${encodeURIComponent(query)}&image_type=photo&orientation=horizontal&per_page=3`;
+    const API_URL = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${encodeURIComponent(query)}&image_type=photo&safesearch=true&per_page=5`;
 
     try {
         const pixabayResponse = await fetch(API_URL);
@@ -38,7 +38,9 @@ export async function GET(request: NextRequest) {
         const data = await pixabayResponse.json();
 
         if (data.hits && data.hits.length > 0) {
-            const imageUrl = data.hits[0].webformatURL;
+            // Pick a random image from the results
+            const randomImage = data.hits[Math.floor(Math.random() * data.hits.length)];
+            const imageUrl = randomImage.webformatURL;
             const imageResponse = await fetch(imageUrl);
 
             if (!imageResponse.ok || !imageResponse.body) {
