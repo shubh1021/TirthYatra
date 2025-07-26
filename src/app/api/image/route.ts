@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
-const PIXABAY_API_KEY = process.env.PIXABAY_ACCESS_KEY;
+const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
 
 // A fallback image to show when Pixabay fails
 const fallbackImage = async () => {
