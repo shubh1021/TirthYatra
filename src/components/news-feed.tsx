@@ -22,9 +22,8 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
       try {
         const newsData = await getNewsFeed({ destinationName });
         
-        // In a real app, you might generate and save these, but for now we use placeholders.
         const newsWithImages = await Promise.all(newsData.newsItems.map(async (item) => {
-            const imageUrl = `https://placehold.co/600x400.png?text=${encodeURIComponent(item.headline)}`;
+            const imageUrl = `https://placehold.co/600x400.png`;
             return { ...item, imageUrl };
         }));
 
