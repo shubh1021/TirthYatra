@@ -1,8 +1,9 @@
+
 "use client";
 
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Check, X, ChevronsUpDown, Pilcrow, Image as ImageIcon } from "lucide-react";
+import { Check, X, ChevronsUpDown, Pilcrow } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -16,8 +17,6 @@ import {
 } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
-
 
 const multiSelectVariants = cva(
   "m-1",
@@ -139,7 +138,7 @@ export const MultiSelect = React.forwardRef<
                         key={value}
                         className={cn(multiSelectVariants({ variant }))}
                       >
-                         {option?.image && <div className="relative w-5 h-5 mr-2 rounded-sm overflow-hidden"><Image src={option.image} alt={option.label} fill className="object-cover" /></div>}
+                         {option?.image && <div className="relative w-5 h-5 mr-2 rounded-sm overflow-hidden"><img src={option.image} alt={option.label} className="w-full h-full object-cover" /></div>}
                         {Icon && <Icon className="h-4 w-4 mr-2" />}
                         {option?.label}
                         <X
@@ -217,7 +216,7 @@ export const MultiSelect = React.forwardRef<
                       >
                         <Check className="h-4 w-4" />
                       </div>
-                      {option.image && <div className="relative w-8 h-8 mr-2 rounded-md overflow-hidden"><Image src={option.image} alt={option.label} fill className="object-cover" /></div>}
+                      {option.image && <div className="relative w-8 h-8 mr-2 rounded-md overflow-hidden"><img src={option.image} alt={option.label} className="w-full h-full object-cover" /></div>}
                       {option.icon && (
                         <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                       )}

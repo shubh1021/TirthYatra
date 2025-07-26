@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,28 +14,28 @@ const services = [
     icon: Plane,
     title: 'Flight Booking',
     description: 'We help you find the best deals on international and domestic flights to your spiritual destinations.',
-    image: 'https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/52/airport-1867622_1280.jpg',
     imageHint: 'airplane window view',
   },
   {
     icon: Hotel,
     title: 'Accommodation',
     description: 'From serene ashrams to comfortable hotels, we arrange stays that suit your budget and preferences.',
-    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://cdn.pixabay.com/photo/2017/08/10/07/22/hotel-2623247_1280.jpg',
     imageHint: 'luxury hotel lobby',
   },
   {
     icon: Car,
     title: 'Local Transport',
     description: 'Seamless intercity and local travel arrangements, including private cabs, trains, and more.',
-    image: 'https://images.pexels.com/photos/3830745/pexels-photo-3830745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://cdn.pixabay.com/photo/2017/07/22/12/23/bmw-2528343_1280.jpg',
     imageHint: 'car mountain road',
   },
   {
     icon: UserCheck,
     title: 'Guided Tours',
     description: 'Knowledgeable local guides to enrich your experience with history, mythology, and cultural insights.',
-    image: 'https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://cdn.pixabay.com/photo/2018/02/10/19/22/people-3144547_1280.jpg',
     imageHint: 'tour guide tourists',
   },
 ];
@@ -45,7 +44,7 @@ const services = [
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`, hint: 'indian temple architecture' }];
+  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://cdn.pixabay.com/photo/2020/01/10/11/25/temple-4754605_1280.jpg`, hint: 'indian temple architecture' }];
 
   return (
     <>
@@ -85,13 +84,11 @@ export default async function Home() {
                     <Link href={`/destinations/${destination.slug}`}>
                       <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col">
                          <div className="relative h-60 w-full">
-                            <Image
+                            <img
                               src={destination.image}
                               alt={destination.name}
                               data-ai-hint={destination.imageHint}
-                              fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-110"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                               loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
@@ -125,13 +122,11 @@ export default async function Home() {
             {services.map((service) => (
               <Card key={service.title} className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src={service.image}
                     alt={service.title}
                     data-ai-hint={service.imageHint}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

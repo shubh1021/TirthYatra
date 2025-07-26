@@ -1,6 +1,5 @@
 
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getDestinationBySlug, getAllDestinations, getDestinationById } from '@/lib/destinations';
@@ -30,19 +29,17 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   }
   
   const nearbyPlaces = destination.nearby;
-  const heroImage = destination.slideshowImages[0] ?? { url: '/api/image?query=indian%20temple', hint: 'indian temple' };
+  const heroImage = destination.slideshowImages[0] ?? { url: 'https://placehold.co/1920x1080.png', hint: 'indian temple' };
 
   return (
     <div className="bg-background">
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] w-full">
-        <Image
+        <img
           src={heroImage.url}
           alt={`A view of ${destination.name}`}
           data-ai-hint={heroImage.hint}
-          fill
-          className="object-cover"
-          priority
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -138,13 +135,11 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
               <Link href={`/destinations/${nearbyDestination.slug}`} key={place.id}>
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   <div className="relative h-60 w-full">
-                    <Image
+                    <img
                       src={place.image}
                       alt={place.name}
                       data-ai-hint={place.imageHint}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="w-full h-full object-cover"
                       loading="lazy"
                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
