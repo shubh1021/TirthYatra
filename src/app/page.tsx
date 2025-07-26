@@ -15,28 +15,28 @@ const services = [
     icon: Plane,
     title: 'Flight Booking',
     description: 'We help you find the best deals on international and domestic flights to your spiritual destinations.',
-    image: '/api/image?query=airplane%20window%20view',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/52/airport-1867622_1280.jpg',
     imageHint: 'airplane window view',
   },
   {
     icon: Hotel,
     title: 'Accommodation',
     description: 'From serene ashrams to comfortable hotels, we arrange stays that suit your budget and preferences.',
-    image: '/api/image?query=luxury%20hotel%20lobby',
+    image: 'https://cdn.pixabay.com/photo/2016/11/18/17/25/asia-1835882_1280.jpg',
     imageHint: 'luxury hotel lobby',
   },
   {
     icon: Car,
     title: 'Local Transport',
     description: 'Seamless intercity and local travel arrangements, including private cabs, trains, and more.',
-    image: '/api/image?query=car%20on%20mountain%20road',
+    image: 'https://cdn.pixabay.com/photo/2017/08/17/10/31/taxi-2650893_1280.jpg',
     imageHint: 'car mountain road',
   },
   {
     icon: UserCheck,
     title: 'Guided Tours',
     description: 'Knowledgeable local guides to enrich your experience with history, mythology, and cultural insights.',
-    image: '/api/image?query=tour%20guide%20with%20tourists',
+    image: 'https://cdn.pixabay.com/photo/2018/02/10/19/22/people-3144547_1280.jpg',
     imageHint: 'tour guide tourists',
   },
 ];
@@ -45,7 +45,7 @@ const services = [
 export default async function Home() {
   const destinations = await getAllDestinations();
   const heroDestination = destinations.find(d => d.slug === 'kashi');
-  const heroImages = heroDestination?.slideshowImages ?? [{ url: `/api/image?query=indian%20temple%20architecture`, hint: 'indian temple architecture' }];
+  const heroImages = heroDestination?.slideshowImages ?? [{ url: `https://cdn.pixabay.com/photo/2021/11/02/18/25/river-6764268_1280.jpg`, hint: 'indian temple architecture' }];
 
   return (
     <>
