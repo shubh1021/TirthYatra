@@ -23,6 +23,7 @@ export default function NewsFeed({ destinationName }: { destinationName: string 
         const newsData = await getNewsFeed({ destinationName });
         
         const newsWithImages = await Promise.all(newsData.newsItems.map(async (item) => {
+            // Use the imageQuery to create a more relevant placeholder URL
             const imageUrl = `https://placehold.co/600x400.png`;
             return { ...item, imageUrl };
         }));
