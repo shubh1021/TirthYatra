@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 import { getDestinationBySlug, getAllDestinations, getDestinationById } from '@/lib/destinations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Users, BookOpen, MapPin, Loader2 } from 'lucide-react';
-import NewsFeed from '@/components/news-feed';
 import ChatbotPlanner from '@/components/chatbot-planner';
 
 type DestinationPageProps = {
@@ -83,17 +82,6 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                   </Card>
                 ))}
               </div>
-            </section>
-
-            <section className="mt-12">
-                 <Suspense fallback={
-                    <div className="flex justify-center items-center h-48">
-                        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-                        <p className="ml-4 text-muted-foreground">Loading News...</p>
-                    </div>
-                 }>
-                    <NewsFeed destinationName={destination.name} />
-                 </Suspense>
             </section>
           </div>
 
