@@ -37,67 +37,44 @@ export function Header() {
     }
   };
 
-  // Default to non-transparent. The effect will override if on homepage.
-  const [headerClasses, setHeaderClasses] = useState('sticky bg-background/80 shadow-md backdrop-blur-lg');
-  const [linkClasses, setLinkClasses] = useState('text-foreground/80');
-  const [logoClasses, setLogoClasses] = useState('text-primary');
+  const hasTransparentHeader = (isMounted && (pathname === '/' || pathname.startsWith('/destinations/'))) && !isMenuOpen;
 
-  useEffect(() => {
-    if (isMounted) {
-      const handleScroll = () => {
-        const hasTransparentHeader = pathname === '/' || pathname.startsWith('/destinations');
-        const isScrolled = window.scrollY > 20;
-        const isTransparent = hasTransparentHeader && !isScrolled && !isMenuOpen;
+  const headerClasses = cn(
+    'top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
+    hasTransparentHeader ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg'
+  );
 
-        setHeaderClasses(isTransparent ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg');
-        setLinkClasses(cn('transition-colors', isTransparent ? 'text-white/90 text-shadow' : 'text-foreground/80'));
-        setLogoClasses(cn('transition-colors', isTransparent ? 'text-white text-shadow' : 'text-primary'));
-      };
+  const linkClasses = cn(
+    'transition-colors font-medium hover:text-primary',
+    hasTransparentHeader ? 'text-white/90 text-shadow' : 'text-foreground/80'
+  );
 
-      handleScroll(); // Set initial classes
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [isMounted, pathname, isMenuOpen]);
-
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/#destinations', label: 'Destinations' },
-    { href: '/services', label: 'Services' },
-  ];
+  const logoClasses = cn(
+    'transition-colors text-2xl md:text-3xl font-headline',
+    hasTransparentHeader ? 'text-white text-shadow' : 'text-primary'
+  );
   
-  const isTransparent = headerClasses.includes('bg-transparent');
+  const mobileMenuButtonClasses = cn(
+    'transition-colors',
+    hasTransparentHeader ? 'text-white hover:text-primary hover:bg-white/10' : 'text-foreground'
+  );
 
   if (!isMounted) {
-    // Render a static, non-transparent header on the server and during initial client render
-    // to prevent hydration mismatch.
     return (
         <header className='sticky top-0 left-0 right-0 z-50 transition-all duration-300 py-3 bg-background/80 shadow-md backdrop-blur-lg'>
              <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                 <Link href="/" className="text-2xl md:text-3xl font-headline text-primary">
                 TirthYatra
                 </Link>
-                {/* Render placeholders or a simplified nav to avoid layout shifts */}
              </div>
         </header>
     );
   }
 
   return (
-    <header
-      className={cn(
-        'top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
-        headerClasses
-      )}
-    >
+    <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link href="/" className={cn(
-            "text-2xl md:text-3xl font-headline",
-            logoClasses
-            )}>
+        <Link href="/" className={logoClasses}>
           TirthYatra
         </Link>
 
@@ -106,10 +83,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={cn(
-                "font-medium hover:text-primary",
-                linkClasses
-                )}
+              className={linkClasses}
               onClick={(e) => handleLinkClick(e, link.href)}
             >
               {link.label}
@@ -128,7 +102,7 @@ export function Header() {
                 variant="ghost" 
                 size="icon" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                className={cn(isTransparent ? 'text-white hover:text-primary hover:bg-white/10' : 'text-foreground')}>
+                className={mobileMenuButtonClasses}>
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
@@ -159,3 +133,9 @@ export function Header() {
     </header>
   );
 }
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/#destinations', label: 'Destinations' },
+  { href: '/services', label: 'Services' },
+];

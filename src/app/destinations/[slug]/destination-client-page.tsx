@@ -26,7 +26,7 @@ export function DestinationClientPage({ destination, nearbyDestinations }: Desti
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center text-white">
+      <section className="h-screen flex items-center justify-center text-center text-white">
         <HeroSlideshow images={destination.slideshowImages} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
         <div className="relative z-10 flex flex-col items-center animate-fade-in px-4">
