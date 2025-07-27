@@ -37,10 +37,12 @@ export function SearchForm() {
         
         {/* Destination */}
         <div className="lg:col-span-4">
-          <Label htmlFor="destination" className="block text-sm font-medium text-foreground mb-2">Where to?</Label>
+          <div className="flex items-center gap-2 mb-2">
+            <MapPin className="h-5 w-5 text-muted-foreground" />
+            <Label htmlFor="destination" className="block text-sm font-medium text-foreground">Where to?</Label>
+          </div>
           <Select name="destination">
-            <SelectTrigger className="w-full pl-10">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select a destination" />
             </SelectTrigger>
             <SelectContent>
@@ -60,19 +62,21 @@ export function SearchForm() {
 
         {/* Days */}
         <div className="lg:col-span-2">
-            <Label htmlFor="days" className="block text-sm font-medium text-foreground mb-2">How many days?</Label>
-            <div className="relative">
-                <CalendarDays className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input id="days" type="number" placeholder="e.g., 5" className="pl-10"/>
+            <div className="flex items-center gap-2 mb-2">
+                <CalendarDays className="h-5 w-5 text-muted-foreground" />
+                <Label htmlFor="days" className="block text-sm font-medium text-foreground">How many days?</Label>
             </div>
+            <Input id="days" type="number" placeholder="e.g., 5"/>
         </div>
 
         {/* Travel Type */}
         <div className="lg:col-span-2">
-            <Label htmlFor="travel-type" className="block text-sm font-medium text-foreground mb-2">Travel Type</Label>
+            <div className="flex items-center gap-2 mb-2">
+                <Users className="h-5 w-5 text-muted-foreground" />
+                <Label htmlFor="travel-type" className="block text-sm font-medium text-foreground">Travel Type</Label>
+            </div>
             <Select name="travel-type" onValueChange={setTravelType}>
-                <SelectTrigger className="w-full pl-10">
-                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select type"/>
                 </SelectTrigger>
                 <SelectContent>
@@ -92,11 +96,11 @@ export function SearchForm() {
         {/* Number of People (Conditional) */}
         {travelType === 'custom' && (
              <div className="lg:col-span-2 animate-fade-in">
-                <Label htmlFor="people" className="block text-sm font-medium text-foreground mb-2">No. of people</Label>
-                <div className="relative">
-                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                    <Input id="people" type="number" placeholder="e.g., 4" className="pl-10"/>
+                <div className="flex items-center gap-2 mb-2">
+                    <Users className="h-5 w-5 text-muted-foreground" />
+                    <Label htmlFor="people" className="block text-sm font-medium text-foreground">No. of people</Label>
                 </div>
+                <Input id="people" type="number" placeholder="e.g., 4"/>
              </div>
         )}
         
