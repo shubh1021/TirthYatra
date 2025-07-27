@@ -17,18 +17,12 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    
-    // Only add the event listener if window is defined (i.e., on the client)
-    if (typeof window !== 'undefined') {
-        window.addEventListener('scroll', handleScroll);
-        // Initial check
-        handleScroll();
-    }
-    
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -47,10 +41,8 @@ export function Header() {
         const targetElement = document.getElementById(targetId);
 
         if (pathname !== '/') {
-            // If on a different page, navigate to home and then scroll.
             window.location.href = href;
         } else {
-            // If already on the homepage, just scroll smoothly.
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
@@ -60,14 +52,14 @@ export function Header() {
     }
   };
 
-  // Determine if the header should have a transparent background
-  // The header is transparent only on the homepage, when not scrolled, and when the mobile menu is closed.
-  const isTransparent = pathname === '/' && !isScrolled && !isMenuOpen;
+  const isHomepage = pathname === '/';
+  const isTransparent = isHomepage && !isScrolled && !isMenuOpen;
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
+        'top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
+        isHomepage ? 'fixed' : 'sticky bg-background/80 shadow-md backdrop-blur-lg',
         isTransparent ? 'bg-transparent' : 'bg-background/80 shadow-md backdrop-blur-lg'
       )}
     >

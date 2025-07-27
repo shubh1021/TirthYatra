@@ -23,8 +23,8 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
+        <Header />
         <div className="flex flex-col min-h-screen">
-          <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
