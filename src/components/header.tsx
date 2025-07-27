@@ -17,23 +17,6 @@ export function Header() {
     setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // The scroll state is only managed on the client after mount
-      // and doesn't need to be a state variable that causes re-renders
-      // for the class logic below, as it's checked inside this effect.
-    };
-
-    if (isMounted) {
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Check on mount
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isMounted]);
-
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
         e.preventDefault();
@@ -62,11 +45,11 @@ export function Header() {
   useEffect(() => {
     if (isMounted) {
       const handleScroll = () => {
-        const isHomepage = pathname === '/';
+        const hasTransparentHeader = pathname === '/' || pathname.startsWith('/destinations');
         const isScrolled = window.scrollY > 20;
-        const isTransparent = isHomepage && !isScrolled && !isMenuOpen;
+        const isTransparent = hasTransparentHeader && !isScrolled && !isMenuOpen;
 
-        setHeaderClasses(isHomepage && !isScrolled && !isMenuOpen ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg');
+        setHeaderClasses(isTransparent ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg');
         setLinkClasses(isTransparent ? 'text-white/90' : 'text-foreground/80');
         setLogoClasses(isTransparent ? 'text-white' : 'text-primary');
       };
