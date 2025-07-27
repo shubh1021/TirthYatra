@@ -79,7 +79,7 @@ A user wants to see news about {{{destinationName}}}.
 1. Use the 'fetchNewsForDestination' tool to get the latest articles.
 2. From the returned articles, select the 3 most interesting, positive, and relevant ones for a spiritual traveler.
 3. For each selected article, rewrite the headline and description to be more engaging, positive, and mystical. Frame it as an exciting update or a point of interest.
-4. Return the rewritten data, including the original URL and image URL.`,
+4. IMPORTANT: You MUST return the original, full, and valid 'url' and 'imageUrl' from the tool's output for each article. Do not create your own placeholder or example URLs.`,
 });
 
 // 3. Define the Genkit Flow that orchestrates the prompt
@@ -102,7 +102,6 @@ const newsFeedFlow = ai.defineFlow(
         url: item.url,
         // The AI output might have a null imageUrl, so we provide a placeholder.
         imageUrl: item.imageUrl || `https://placehold.co/600x400.png`,
-        imageQuery: '' // No longer needed as we have real images
     }));
 
     return { newsItems: mappedItems };
