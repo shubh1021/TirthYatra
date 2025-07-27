@@ -85,7 +85,7 @@ export default function TripPlannerPage() {
     try {
       const result = await aiBudgetPlanner(data);
       setPlannerResult(result);
-    } catch (error) => {
+    } catch (error) {
       console.error("Budget Planner Error:", error);
       toast({
         variant: 'destructive',
@@ -117,7 +117,7 @@ export default function TripPlannerPage() {
   if (plannerResult) {
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 animate-fade-in">
-            <Card className="max-w-4xl mx-auto mt-12 animate-fade-in bg-card/80 border-none rounded-2xl shadow-2xl">
+            <Card className="max-w-4xl mx-auto mt-12 animate-fade-in bg-card/80 backdrop-blur-md border-none rounded-2xl shadow-2xl">
                 <CardHeader className="text-center">
                     <div className="inline-block bg-primary/10 text-primary p-4 rounded-full mx-auto mb-4">
                         <Sparkles className="w-10 h-10" />
@@ -140,7 +140,7 @@ export default function TripPlannerPage() {
                       <CarouselNext className="right-2" />
                     </Carousel>
 
-                    <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 leading-relaxed bg-secondary/70 p-6 rounded-xl">
+                    <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 leading-relaxed bg-background/70 backdrop-blur-sm p-6 rounded-xl">
                         <p>{plannerResult.itinerary}</p>
                     </div>
 
@@ -149,7 +149,7 @@ export default function TripPlannerPage() {
                             <h3 className="text-3xl font-headline text-primary flex items-center gap-3 mb-6"><Calendar /> Suggested Rituals & Events</h3>
                             <div className="space-y-4">
                                 {plannerResult.suggestedEvents.map((event, index) => (
-                                    <div key={index} className="p-4 bg-background rounded-xl border">
+                                    <div key={index} className="p-4 bg-background/70 backdrop-blur-sm rounded-xl border">
                                         <p className="font-bold text-lg text-foreground">{event.eventName} <span className="text-base font-normal text-muted-foreground">in {event.destination}</span></p>
                                         <p className="text-muted-foreground mt-1">{event.eventInfo}</p>
                                     </div>
@@ -177,7 +177,7 @@ export default function TripPlannerPage() {
         </p>
       </div>
 
-      <Card className="max-w-2xl mx-auto mt-12 transition-all duration-500 rounded-2xl shadow-xl border-none">
+      <Card className="max-w-2xl mx-auto mt-12 transition-all duration-500 rounded-2xl shadow-xl border-none bg-card/80 backdrop-blur-md">
         <CardHeader>
           <CardTitle>Plan Your Journey</CardTitle>
           <CardDescription>Follow the steps to create your personalized travel narrative.</CardDescription>
@@ -200,7 +200,7 @@ export default function TripPlannerPage() {
                         type="number"
                         {...register('budget')}
                         placeholder="e.g., 100000"
-                        className="pl-10 h-12 text-lg"
+                        className="pl-10 h-12 text-lg bg-background/70"
                       />
                     </div>
                     <Select
@@ -210,7 +210,7 @@ export default function TripPlannerPage() {
                         setSelectedCurrency(value);
                       }}
                     >
-                      <SelectTrigger className="w-[120px] h-12 text-lg">
+                      <SelectTrigger className="w-[120px] h-12 text-lg bg-background/70">
                         <SelectValue placeholder="Currency" />
                       </SelectTrigger>
                       <SelectContent>
@@ -238,6 +238,7 @@ export default function TripPlannerPage() {
                         placeholder="Select one or more destinations..."
                         variant="inverted"
                         animation={2}
+                        className="bg-background/70"
                     />
                     {errors.destinations && <p className="text-sm text-destructive">{errors.destinations.message}</p>}
                 </div>
