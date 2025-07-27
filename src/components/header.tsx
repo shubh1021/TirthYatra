@@ -17,9 +17,19 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Only add the event listener if window is defined (i.e., on the client)
+    if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', handleScroll);
+        // Initial check
+        handleScroll();
+    }
+    
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, []);
 
   const navLinks = [
@@ -50,19 +60,21 @@ export function Header() {
     }
   };
 
+  // Determine if the header should have a transparent background
+  // The header is transparent only on the homepage, when not scrolled, and when the mobile menu is closed.
+  const isTransparent = pathname === '/' && !isScrolled && !isMenuOpen;
 
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
-        isScrolled || isMenuOpen ? 'bg-background/80 shadow-md backdrop-blur-lg' : 'bg-transparent',
-        (isScrolled || isMenuOpen) ? 'text-foreground' : 'text-white'
+        isTransparent ? 'bg-transparent' : 'bg-background/80 shadow-md backdrop-blur-lg'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link href="/" className={cn(
             "text-2xl md:text-3xl font-headline transition-colors",
-            isScrolled || isMenuOpen ? 'text-primary' : 'text-white'
+            isTransparent ? 'text-white' : 'text-primary'
             )}>
           TirthYatra
         </Link>
@@ -74,7 +86,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 "font-medium hover:text-primary transition-colors",
-                isScrolled || isMenuOpen ? 'text-foreground/80' : 'text-white/90'
+                isTransparent ? 'text-white/90' : 'text-foreground/80'
                 )}
               onClick={(e) => handleLinkClick(e, link.href)}
             >
@@ -94,7 +106,7 @@ export function Header() {
                 variant="ghost" 
                 size="icon" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                className={cn(isScrolled || isMenuOpen ? 'text-foreground' : 'text-white hover:text-primary hover:bg-white/10')}>
+                className={cn(isTransparent ? 'text-white hover:text-primary hover:bg-white/10' : 'text-foreground')}>
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
@@ -102,7 +114,7 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden mt-3 bg-background shadow-lg">
+        <div className="md:hidden mt-3 bg-background/95 shadow-lg">
           <nav className="flex flex-col items-start space-y-2 p-4">
             {navLinks.map((link) => (
               <Link
