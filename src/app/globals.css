@@ -4,42 +4,42 @@
 
 @layer base {
   :root {
-    --background: 45 67% 95%; /* #fbe6c2 */
-    --foreground: 24 67% 10%; /* #351e0b - A bit darker than pure brown for text */
-    --card: 45 67% 97%; /* Lighter version of background for cards */
+    --background: 34 50% 96%; /* #f9f5f0 - A very light, warm cream */
+    --foreground: 24 67% 10%;
+    --card: 0 0% 100%;
     --card-foreground: 24 67% 10%;
-    --popover: 45 67% 97%;
+    --popover: 0 0% 100%;
     --popover-foreground: 24 67% 10%;
-    --primary: 29 70% 55%; /* #e0a458 */
-    --primary-foreground: 10 78% 9%; /* Dark brown for text on primary */
-    --secondary: 40 50% 90%; /* #f0e6d9 - a soft cream */
+    --primary: 29 70% 55%;
+    --primary-foreground: 10 78% 9%;
+    --secondary: 40 50% 92%; /* #f2e9de - A soft, earthy cream */
     --secondary-foreground: 24 67% 10%;
-    --muted: 40 50% 85%; /* #e6dace */
+    --muted: 40 50% 88%; /* #ebe1d6 */
     --muted-foreground: 24 50% 30%;
-    --accent: 10 61% 31%; /* #822e1c */
-    --accent-foreground: 45 67% 95%; /* background color for text on accent */
-    --destructive: 0 72% 51%; /* A standard red */
+    --accent: 10 61% 31%;
+    --accent-foreground: 45 67% 95%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 29 70% 85%; /* Lighter version of primary */
-    --input: 29 70% 90%; /* Even lighter version of primary */
+    --border: 34 50% 88%; /* #e8ded4 */
+    --input: 34 50% 90%; /* #ede6de */
     --ring: 29 70% 55%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 20 12% 10%; /* #201e1c - Dark brown */
-    --foreground: 45 67% 95%; /* #fbe6c2 */
-    --card: 20 12% 12%; /* #262321 */
+    --background: 20 12% 10%;
+    --foreground: 45 67% 95%;
+    --card: 20 12% 12%;
     --card-foreground: 45 67% 95%;
     --popover: 20 12% 10%;
     --popover-foreground: 45 67% 95%;
-    --primary: 29 70% 55%; /* #e0a458 */
+    --primary: 29 70% 55%;
     --primary-foreground: 10 78% 9%;
-    --secondary: 10 61% 21%; /* Darker version of accent #5a2013 */
+    --secondary: 10 61% 21%;
     --secondary-foreground: 45 67% 95%;
-    --muted: 10 61% 25%; /* #6d2617 */
+    --muted: 10 61% 25%;
     --muted-foreground: 40 50% 80%;
-    --accent: 29 70% 65%; /* #e8b678 - Lighter primary for accent in dark mode */
+    --accent: 29 70% 65%;
     --accent-foreground: 10 78% 9%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
@@ -55,7 +55,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: url('/background-pattern.svg');
-    background-repeat: repeat;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
