@@ -8,29 +8,7 @@ import { getAllDestinations } from '@/lib/destinations';
 import { ArrowRight, Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck } from 'lucide-react';
 import { HeroSlideshow } from '@/components/hero-slideshow';
 import { SearchForm } from '@/components/search-form';
-
-const services = [
-  {
-    icon: Plane,
-    title: 'Flight Booking',
-    description: 'Seamless flight arrangements to your chosen spiritual destinations.',
-  },
-  {
-    icon: Hotel,
-    title: 'Accommodation',
-    description: 'Comfortable and serene stays, from ashrams to premium hotels.',
-  },
-  {
-    icon: Car,
-    title: 'Local Transport',
-    description: 'Hassle-free local and intercity travel with our trusted partners.',
-  },
-  {
-    icon: UserCheck,
-    title: 'Guided Tours',
-    description: 'Enrich your journey with our knowledgeable and friendly local guides.',
-  },
-];
+import { servicesData } from '@/lib/services-data-stubs';
 
 const whyChooseUs = [
     {
@@ -139,16 +117,16 @@ export default async function Home() {
             </p>
            </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-            {services.map((service) => (
+            {servicesData.map((service) => (
               <Card key={service.title} className="text-center p-8 bg-card backdrop-blur-sm rounded-2xl shadow-lg border">
                 <div className="inline-block bg-primary/10 text-primary p-4 rounded-full">
-                    <service.icon className="w-8 h-8" />
+                    {/* Placeholder for a dynamic icon */}
                 </div>
                 <CardHeader className="p-0 mt-4">
                   <CardTitle className="text-xl font-headline">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0 mt-2">
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                  <p className="text-muted-foreground text-sm">A description of the service can go here.</p>
                 </CardContent>
               </Card>
             ))}

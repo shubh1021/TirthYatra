@@ -14,15 +14,7 @@ export async function getDestinationBySlug(slug: string): Promise<Destination | 
     return destinationsData.find((d) => d.slug === slug);
 }
 
-export async function getDestinationById(id: string): Promise<Pick<Destination, 'id' | 'slug' | 'name' | 'image' | 'imageHint'> | undefined> {
+export async function getDestinationById(id: string): Promise<Destination | undefined> {
     const destination = destinationsData.find((d) => d.id === id);
-    if (!destination) return undefined;
-
-    return {
-        id: destination.id,
-        slug: destination.slug,
-        name: destination.name,
-        image: destination.image, 
-        imageHint: destination.imageHint,
-    };
+    return destination;
 }
