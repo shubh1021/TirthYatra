@@ -4,25 +4,34 @@
 
 @layer base {
   :root {
-    --background: 34 50% 96%; /* #f9f5f0 - A very light, warm cream */
+    --background: 34 50% 98%; /* Lighter, almost white cream */
     --foreground: 24 67% 10%;
+    
     --card: 0 0% 100%;
     --card-foreground: 24 67% 10%;
+    
     --popover: 0 0% 100%;
     --popover-foreground: 24 67% 10%;
-    --primary: 29 70% 55%;
+    
+    --primary: 29 80% 58%; /* Brighter Saffron */
     --primary-foreground: 10 78% 9%;
-    --secondary: 40 50% 92%; /* #f2e9de - A soft, earthy cream */
+    
+    --secondary: 34 50% 92%; /* Soft earthy cream for backgrounds */
     --secondary-foreground: 24 67% 10%;
-    --muted: 40 50% 88%; /* #ebe1d6 */
-    --muted-foreground: 24 50% 30%;
-    --accent: 10 61% 31%;
-    --accent-foreground: 45 67% 95%;
+
+    --muted: 34 50% 88%;
+    --muted-foreground: 24 50% 40%; /* Darker for better contrast */
+    
+    --accent: 35 85% 95%; /* Very light accent */
+    --accent-foreground: 29 80% 45%;
+
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 34 50% 88%; /* #e8ded4 */
-    --input: 34 50% 90%; /* #ede6de */
-    --ring: 29 70% 55%;
+    
+    --border: 34 50% 88%;
+    --input: 34 50% 90%;
+    --ring: 29 80% 58%;
+    
     --radius: 0.75rem;
   }
 
@@ -61,5 +70,8 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-shadow-lg {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   }
 }

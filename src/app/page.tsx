@@ -7,7 +7,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { getAllDestinations } from '@/lib/destinations';
 import { ArrowRight, Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck } from 'lucide-react';
 import { HeroSlideshow } from '@/components/hero-slideshow';
-import { flightBookingImageData, accommodationImageData, localTransportImageData, guidedToursImageData } from '@/lib/image-data';
+import { SearchForm } from '@/components/search-form';
 
 const services = [
   {
@@ -58,32 +58,33 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center text-white">
+      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center text-white">
         <HeroSlideshow images={heroImages} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
-        <div className="relative z-10 animate-fade-in px-4">
+        <div className="relative z-10 flex flex-col items-center animate-fade-in px-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold text-shadow-lg text-balance">
-            Your Spiritual Journey Starts Here
+            A Trip Around India Together
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 text-balance">
-            We craft curated divine experiences for global explorers seeking peace, purpose, and connection in the heart of India.
+            Find awesome flights, hotels, tour, and packages for your next spiritual journey.
           </p>
           <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground text-base rounded-full px-8 py-6">
-            <Link href="/trip-planner">Plan Your Journey <ArrowRight className="ml-2" /></Link>
+            <Link href="/trip-planner">Discover Now <ArrowRight className="ml-2" /></Link>
           </Button>
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-5xl px-4 z-20">
+           <SearchForm />
         </div>
       </section>
 
       {/* Destinations Carousel Section */}
-      <section id="destinations" className="py-20 md:py-28 bg-background">
+      <section id="destinations" className="pt-40 pb-20 md:pt-48 md:pb-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-headline text-primary">
-              Discover Sacred Destinations
+             <p className="text-primary font-semibold">World's best tourist destinations</p>
+            <h2 className="text-3xl md:text-4xl font-headline text-foreground mt-2">
+              Most Popular Adventure
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground text-balance">
-              Explore ancient cities, vibrant temples, and serene landscapes that have been centers of spirituality for millennia. Each destination offers a unique path to enlightenment.
-            </p>
           </div>
           <Carousel
             opts={{
@@ -97,26 +98,23 @@ export default async function Home() {
                 <CarouselItem key={destination.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-2">
                     <Link href={`/destinations/${destination.slug}`}>
-                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full flex flex-col border-none rounded-2xl">
+                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col border rounded-lg bg-card">
                          <div className="relative h-96 w-full">
                             <Image
                               src={destination.image}
                               alt={destination.name}
                               data-ai-hint={destination.imageHint}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                               fill
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                            <CardTitle className="absolute bottom-6 left-6 text-3xl font-headline text-white drop-shadow-md">{destination.name}</CardTitle>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                            <div className="absolute bottom-4 left-4 text-white">
+                                <CardTitle className="text-2xl font-headline drop-shadow-md">{destination.name}</CardTitle>
+                                {/* Add rating stars if you have rating data */}
+                            </div>
                          </div>
-                        <CardContent className="p-6 bg-card flex-grow">
-                            <p className="text-muted-foreground line-clamp-3">{destination.description}</p>
-                            <span className="inline-flex items-center text-primary font-semibold mt-4 group-hover:underline">
-                                Explore <ArrowRight className="ml-2 w-4 h-4" />
-                            </span>
-                        </CardContent>
                       </Card>
                     </Link>
                   </div>
@@ -130,7 +128,7 @@ export default async function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 md:py-28 bg-secondary/70">
+      <section id="services" className="py-20 md:py-28 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-headline text-primary">
@@ -142,7 +140,7 @@ export default async function Home() {
            </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {services.map((service) => (
-              <Card key={service.title} className="text-center p-8 bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg border-none">
+              <Card key={service.title} className="text-center p-8 bg-card backdrop-blur-sm rounded-2xl shadow-lg border">
                 <div className="inline-block bg-primary/10 text-primary p-4 rounded-full">
                     <service.icon className="w-8 h-8" />
                 </div>
