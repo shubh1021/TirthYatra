@@ -41,7 +41,7 @@ export function Header() {
 
   const headerClasses = cn(
     'top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
-    hasTransparentHeader ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg'
+    hasTransparentHeader ? 'fixed bg-black/10' : 'sticky bg-background/80 shadow-md backdrop-blur-lg'
   );
 
   const linkClasses = cn(
