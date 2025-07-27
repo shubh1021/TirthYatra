@@ -7,6 +7,7 @@
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "generate:images": "tsx src/ai/scripts/generate-and-save-images.ts",
+    "postgenerate:images": "node scripts/optimize-images.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
