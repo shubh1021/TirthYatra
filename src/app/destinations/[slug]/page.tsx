@@ -1,4 +1,3 @@
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,6 +28,17 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
   
   const nearbyPlaces = destination.nearby;
   const heroImage = destination.slideshowImages[0] ?? { url: `https://placehold.co/1280x720.png`, hint: 'indian temple' };
+
+  // Fetch nearby destinations asynchronously
+  const nearbyDestinationsData = await Promise.all(
+    nearbyPlaces.map(async (place) => {
+      const nearbyDestination = await getDestinationById(place.id);
+      return nearbyDestination ? { ...nearbyDestination, imageHint: place.imageHint } : null;
+    })
+  );
+
+  // Filter out null values (for cases where getDestinationById returned null)
+  const validNearbyDestinations = nearbyDestinationsData.filter(place => place !== null);
 
   return (
     <div className="bg-background">
@@ -133,16 +143,12 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
             <MapPin className="w-8 h-8 text-primary" /> Explore Nearby Destinations
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {nearbyPlaces.map(async place => {
-              const nearbyDestination = await getDestinationById(place.id);
-              if (!nearbyDestination) return null;
-              
-              return (
-              <Link href={`/destinations/${nearbyDestination.slug}`} key={place.id}>
+            {validNearbyDestinations.map(place => (
+              <Link href={`/destinations/${place.slug}`} key={place.id}>
                  <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2 rounded-xl border-none">
                   <div className="relative h-80 w-full">
                     <Image
-                      src={nearbyDestination.image}
+                      src={place.image}
                       alt={place.name}
                       data-ai-hint={place.imageHint}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -155,9 +161,10 @@ export default async function DestinationPage({ params }: DestinationPageProps) 
                   </div>
                 </Card>
               </Link>
-            )})}
+            ))}
           </div>
         </section>
       </div>
     </div>
   );
+}
