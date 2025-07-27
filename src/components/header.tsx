@@ -50,8 +50,8 @@ export function Header() {
         const isTransparent = hasTransparentHeader && !isScrolled && !isMenuOpen;
 
         setHeaderClasses(isTransparent ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg');
-        setLinkClasses(isTransparent ? 'text-white/90' : 'text-foreground/80');
-        setLogoClasses(isTransparent ? 'text-white' : 'text-primary');
+        setLinkClasses(cn('transition-colors', isTransparent ? 'text-white/90 text-shadow' : 'text-foreground/80'));
+        setLogoClasses(cn('transition-colors', isTransparent ? 'text-white text-shadow' : 'text-primary'));
       };
 
       handleScroll(); // Set initial classes
@@ -95,7 +95,7 @@ export function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link href="/" className={cn(
-            "text-2xl md:text-3xl font-headline transition-colors",
+            "text-2xl md:text-3xl font-headline",
             logoClasses
             )}>
           TirthYatra
@@ -107,7 +107,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-medium hover:text-primary transition-colors",
+                "font-medium hover:text-primary",
                 linkClasses
                 )}
               onClick={(e) => handleLinkClick(e, link.href)}
