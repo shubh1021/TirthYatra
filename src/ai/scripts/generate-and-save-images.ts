@@ -22,6 +22,7 @@ async function generateAndSaveImage(prompt: string, filePath: string) {
   console.log(`Generating image for prompt: "${prompt}"...`);
 
   try {
+    // Correctly configure the model for image generation
     const { media } = await ai.generate({
       model: 'googleai/gemini-2.0-flash-preview-image-generation',
       prompt: `A high-resolution, photorealistic, spiritual image for a travel website: ${prompt}. Centered, vibrant, professional photography.`,
