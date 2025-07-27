@@ -11,20 +11,27 @@ import { usePathname } from 'next/navigation';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    
+    if (isMounted) {
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check on mount
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isMounted]);
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -51,9 +58,10 @@ export function Header() {
         setIsMenuOpen(false);
     }
   };
-
+  
   const isHomepage = pathname === '/';
-  const isTransparent = isHomepage && !isScrolled && !isMenuOpen;
+  // We only apply transparency logic when the component is mounted on the client
+  const isTransparent = isMounted && isHomepage && !isScrolled && !isMenuOpen;
 
   return (
     <header
