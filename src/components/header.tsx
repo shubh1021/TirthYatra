@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
@@ -20,9 +19,11 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // The scroll state is only managed on the client after mount
+      // and doesn't need to be a state variable that causes re-renders
+      // for the class logic below, as it's checked inside this effect.
     };
-    
+
     if (isMounted) {
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // Check on mount
@@ -32,12 +33,6 @@ export function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isMounted]);
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/#destinations', label: 'Destinations' },
-    { href: '/services', label: 'Services' },
-  ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
@@ -58,23 +53,67 @@ export function Header() {
         setIsMenuOpen(false);
     }
   };
+
+  // Default to non-transparent. The effect will override if on homepage.
+  const [headerClasses, setHeaderClasses] = useState('sticky bg-background/80 shadow-md backdrop-blur-lg');
+  const [linkClasses, setLinkClasses] = useState('text-foreground/80');
+  const [logoClasses, setLogoClasses] = useState('text-primary');
+
+  useEffect(() => {
+    if (isMounted) {
+      const handleScroll = () => {
+        const isHomepage = pathname === '/';
+        const isScrolled = window.scrollY > 20;
+        const isTransparent = isHomepage && !isScrolled && !isMenuOpen;
+
+        setHeaderClasses(isHomepage && !isScrolled && !isMenuOpen ? 'fixed bg-transparent' : 'sticky bg-background/80 shadow-md backdrop-blur-lg');
+        setLinkClasses(isTransparent ? 'text-white/90' : 'text-foreground/80');
+        setLogoClasses(isTransparent ? 'text-white' : 'text-primary');
+      };
+
+      handleScroll(); // Set initial classes
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [isMounted, pathname, isMenuOpen]);
+
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/#destinations', label: 'Destinations' },
+    { href: '/services', label: 'Services' },
+  ];
   
-  const isHomepage = pathname === '/';
-  // We only apply transparency logic when the component is mounted on the client
-  const isTransparent = isMounted && isHomepage && !isScrolled && !isMenuOpen;
+  const isTransparent = headerClasses.includes('bg-transparent');
+
+  if (!isMounted) {
+    // Render a static, non-transparent header on the server and during initial client render
+    // to prevent hydration mismatch.
+    return (
+        <header className='sticky top-0 left-0 right-0 z-50 transition-all duration-300 py-3 bg-background/80 shadow-md backdrop-blur-lg'>
+             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                <Link href="/" className="text-2xl md:text-3xl font-headline text-primary">
+                TirthYatra
+                </Link>
+                {/* Render placeholders or a simplified nav to avoid layout shifts */}
+             </div>
+        </header>
+    );
+  }
 
   return (
     <header
       className={cn(
         'top-0 left-0 right-0 z-50 transition-all duration-300 py-3',
-        isHomepage ? 'fixed' : 'sticky bg-background/80 shadow-md backdrop-blur-lg',
-        isTransparent ? 'bg-transparent' : 'bg-background/80 shadow-md backdrop-blur-lg'
+        headerClasses
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link href="/" className={cn(
             "text-2xl md:text-3xl font-headline transition-colors",
-            isTransparent ? 'text-white' : 'text-primary'
+            logoClasses
             )}>
           TirthYatra
         </Link>
@@ -86,7 +125,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 "font-medium hover:text-primary transition-colors",
-                isTransparent ? 'text-white/90' : 'text-foreground/80'
+                linkClasses
                 )}
               onClick={(e) => handleLinkClick(e, link.href)}
             >
