@@ -4,6 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Chatbot } from '@/components/chatbot';
+import { lato, tiro_devanagari_sanskrit } from './fonts';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'TirthYatra - Your Spiritual Journey Starts Here',
@@ -16,12 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={cn(lato.variable, tiro_devanagari_sanskrit.variable)}>
+      <head />
       <body className="font-body antialiased">
         <Header />
         <div className="flex flex-col min-h-screen">

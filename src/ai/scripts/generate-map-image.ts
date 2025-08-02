@@ -1,49 +1,60 @@
-import { generateText } from '@genkit-ai/ai';
-import { gemini } from '@genkit-ai/googleai';
-import fs from 'fs';
-import path from 'path';
 
-async function generateMapImage() {
-  const prompt = "Generate an image of a clean, minimalist outline map of India with a transparent background. The map outline should be a single solid saffron color (#f4a261). The final output must be a PNG file with a transparent background.";
+// src/ai/scripts/generate-map-image.ts
+import 'dotenv/config';
+import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/googleai';
+import * as fs from 'fs';
+import * as path from 'path';
 
-  // Use a suitable model for image generation (e.g., gemini-1.5-pro or a vision model if available and supported)
-  const model = gemini.textAndImage({ model: 'gemini-1.5-pro' });
+// This script is designed to be run from the root of the project.
+const publicDir = path.resolve(process.cwd(), 'public');
+const imagePath = 'images/india-map-outline.png';
+const fullPath = path.join(publicDir, imagePath);
+
+async function generateAndSaveMapImage() {
+  // Check if image already exists
+  if (fs.existsSync(fullPath)) {
+    console.log(`Map image already exists, skipping: ${imagePath}`);
+    return;
+  }
+
+  const prompt = `Generate an image of a clean, minimalist outline map of India with a transparent background. The map outline should be a single solid saffron color (#f4a261). The final output must be a PNG file with a transparent background.`;
+  console.log(`Generating map image with prompt: "${prompt}"...`);
 
   try {
-    const response = await generateText({
-      model: model,
+    const { media } = await ai.generate({
+      model: googleAI.model('gemini-2.0-flash-preview-image-generation'),
       prompt: prompt,
+      config: {
+        responseModalities: ['IMAGE', 'TEXT'],
+      },
     });
 
-    // Placeholder for saving the image:
-    const outputDir = path.join(process.cwd(), 'public', 'images');
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    if (!media || !media.url) {
+      throw new Error('No media returned from the AI.');
     }
-    const outputPath = path.join(outputDir, 'india-map-outline.png');
 
-    // This is a placeholder. You'll need to get the actual image data from the response
-    // and write it to the file.
-    console.log("Placeholder: Code to extract and save image data from Gemini response goes here.");
-    console.log("Gemini response structure needs to be inspected to implement the saving logic.");
+    // The media.url is a data URI: "data:image/png;base64,<b64_encoded_image>"
+    const base64Data = media.url.split(',')[1];
+    if (!base64Data) {
+        throw new Error('Invalid data URI format.');
+    }
 
-    // Example (highly speculative, depends on API response format):
-    // if (response.candidates && response.candidates[0].content.parts) {
-    //   const imagePart = response.candidates[0].content.parts.find(part => part.inlineData && part.inlineData.mimeType.startsWith('image/'));
-    //   if (imagePart) {
-    //     const imageBuffer = Buffer.from(imagePart.inlineData.data, 'base64');
-    //     fs.writeFileSync(outputPath, imageBuffer);
-    //     console.log(`Map image saved to: ${outputPath}`);
-    //   } else {
-    //     console.error("No image data found in the Gemini response.");
-    //   }
-    // } else {
-    //   console.error("Unexpected Gemini response structure.");
-    // }
+    const imageBuffer = Buffer.from(base64Data, 'base64');
+    
+    // Ensure directory exists
+    const dirName = path.dirname(fullPath);
+    fs.mkdirSync(dirName, { recursive: true });
+    
+    // Save the file
+    fs.writeFileSync(fullPath, imageBuffer);
+
+    console.log(`Successfully saved map image to: ${imagePath}`);
 
   } catch (error) {
-    console.error('Failed to generate or save map image:', error);
+    console.error(`Failed to generate or save map image:`, error);
+    throw error;
   }
 }
 
-generateMapImage();
+generateAndSaveMapImage().catch(console.error);

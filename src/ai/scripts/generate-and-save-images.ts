@@ -2,6 +2,7 @@
 // src/ai/scripts/generate-and-save-images.ts
 import 'dotenv/config';
 import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/googleai';
 import { destinationsData } from '@/lib/destinations-data-stubs';
 import { servicesData } from '@/lib/services-data-stubs';
 import * as fs from 'fs';
@@ -26,9 +27,8 @@ async function generateAndSaveImage(prompt: string, filePath: string) {
   console.log(`Generating image for prompt: "${prompt}"...`);
 
   try {
-    // Correctly configure the model for image generation
     const { media } = await ai.generate({
-      model: 'googleai/gemini-2.0-flash-preview-image-generation',
+      model: googleAI.model('gemini-2.0-flash-preview-image-generation'),
       prompt: `A high-resolution, photorealistic, spiritual image for a travel website: ${prompt}. Centered, vibrant, professional photography.`,
       config: {
         responseModalities: ['IMAGE', 'TEXT'],

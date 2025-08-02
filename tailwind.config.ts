@@ -10,9 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Lato', 'sans-serif'],
-        headline: ['"Tiro Devanagari Sanskrit"', 'serif'],
-        code: ['monospace'],
+        body: ['var(--font-lato)', 'sans-serif'],
+        headline: ['var(--font-tiro-devanagari-sanskrit)', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

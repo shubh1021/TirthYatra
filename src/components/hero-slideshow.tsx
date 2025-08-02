@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -16,7 +16,7 @@ interface HeroSlideshowProps {
 }
 
 export function HeroSlideshow({ images }: HeroSlideshowProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
   const [loadingStates, setLoadingStates] = useState(images.map(() => true));
 
   const handleLoadingComplete = (index: number) => {

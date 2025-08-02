@@ -11,6 +11,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import {googleAI} from '@genkit-ai/googleai';
 
 const ChatInputSchema = z.object({
   query: z.string().describe('The user query.'),
@@ -30,6 +31,7 @@ const prompt = ai.definePrompt({
   name: 'chatbotPrompt',
   input: {schema: ChatInputSchema},
   output: {schema: ChatOutputSchema},
+  model: googleAI.model('gemini-1.5-flash'),
   prompt: `You are a helpful travel assistant specializing in spiritual tourism in India.  Answer user questions about destinations, travel planning, and cultural etiquette.
 
   User Query: {{{query}}}
