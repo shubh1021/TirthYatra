@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev --workspace=TirthYatra",
+    "dev": "npm run dev --workspace=TirthYatra --",
     "build": "npm run build --workspace=TirthYatra",
     "start": "npm run start --workspace=TirthYatra",
     "lint": "npm run lint --workspace=TirthYatra"
