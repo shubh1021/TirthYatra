@@ -23,21 +23,11 @@ export function DestinationsSection({ destinations }: DestinationsSectionProps) 
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
-  const updateBackground = useCallback((api: CarouselApi) => {
-    const currentSlide = api.selectedScrollSnap();
-    setCurrent(currentSlide);
-    const inViewSlides = api.slidesInView();
-
-    let centralSlideIndex;
-    if (inViewSlides.length === 1) {
-        centralSlideIndex = inViewSlides[0];
-    } else if (inViewSlides.length > 1) {
-        centralSlideIndex = inViewSlides[Math.floor(inViewSlides.length / 2)];
-    } else {
-        centralSlideIndex = currentSlide;
-    }
-    
-    setBackgroundImage(destinations[centralSlideIndex]?.image || '');
+  const updateCurrentSlide = useCallback((api: CarouselApi) => {
+    if (!api) return;
+    const currentSlideIndex = api.selectedScrollSnap();
+    setCurrent(currentSlideIndex);
+    setBackgroundImage(destinations[currentSlideIndex]?.image || '');
   }, [destinations]);
 
 
@@ -46,25 +36,26 @@ export function DestinationsSection({ destinations }: DestinationsSectionProps) 
       return;
     }
 
-    updateBackground(api);
-    api.on("select", updateBackground);
-    api.on("reInit", updateBackground);
+    updateCurrentSlide(api);
+    api.on("select", updateCurrentSlide);
+    api.on("reInit", updateCurrentSlide);
 
     return () => {
-      api.off("select", updateBackground);
-      api.off("reInit", updateBackground);
+      api.off("select", updateCurrentSlide);
+      api.off("reInit", updateCurrentSlide);
     };
-  }, [api, updateBackground]);
+  }, [api, updateCurrentSlide]);
 
   return (
     <section id="destinations" className="relative pt-20 pb-20 md:pt-28 md:pb-28 bg-background overflow-hidden transition-all duration-1000">
         <div className="absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out">
             {backgroundImage && (
                 <Image
+                    key={backgroundImage} // Add key to force re-render on image change
                     src={backgroundImage}
                     alt="Destination background"
                     fill
-                    className="object-cover scale-110 blur opacity-30"
+                    className="object-cover scale-110 blur opacity-30 animate-fade-in"
                 />
             )}
             <div className="absolute inset-0 bg-background/70 backdrop-blur-sm"></div>
