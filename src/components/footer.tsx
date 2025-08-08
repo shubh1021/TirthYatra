@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -22,7 +23,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
               <li><Link href="/#destinations" className="text-muted-foreground hover:text-primary transition-colors">Destinations</Link></li>
-              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/#services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
               <li><Link href="/trip-planner" className="text-muted-foreground hover:text-primary transition-colors">AI Trip Planner</Link></li>
             </ul>
           </div>

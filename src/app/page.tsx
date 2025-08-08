@@ -5,9 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getAllDestinations } from '@/lib/destinations';
-import { ArrowRight, Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck, Star } from 'lucide-react';
+import { Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck, Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { IndiaMap } from '@/components/india-map';
 
 const servicesData = [
     {
@@ -83,16 +82,27 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center text-center bg-secondary/30 overflow-hidden">
-        <div className="relative z-10 flex flex-col items-center animate-fade-in px-4 w-full h-full pt-20">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold text-primary text-shadow-lg text-balance">
-                Find The Incredible You
+      <section className="relative h-screen flex items-center justify-center text-center text-white">
+        <div className="absolute inset-0">
+            <Image
+                src="/images/destinations/ayodhya/ayodhya-grand-temple.jpg"
+                alt="Grand Temple of Ayodhya"
+                data-ai-hint="Ayodhya grand temple"
+                fill
+                className="object-cover"
+                priority
+            />
+            <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center animate-fade-in px-4">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-bold text-shadow-lg text-balance">
+                TirthYatra
             </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-foreground/80 text-balance">
-                Discover India's rich spiritual tapestry. Hover over a destination to begin your journey.
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 text-balance">
+                Your Spiritual Journey Starts Here. Curated divine experiences for global explorers in India.
             </p>
-            <div className="flex-grow w-full relative">
-                <IndiaMap destinations={destinations} />
+            <div className="absolute bottom-10">
+                <ChevronDown className="w-10 h-10 animate-bounce" />
             </div>
         </div>
       </section>
@@ -101,9 +111,8 @@ export default async function Home() {
       <section id="destinations" className="pt-20 pb-20 md:pt-28 md:pb-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-             <p className="text-primary font-semibold">Explore Sacred Lands</p>
-            <h2 className="text-3xl md:text-4xl font-headline text-foreground mt-2">
-              Must-Visit Spiritual Destinations
+            <h2 className="text-3xl md:text-4xl font-headline text-primary">
+              Discover Sacred Destinations
             </h2>
           </div>
           <Carousel
@@ -118,7 +127,7 @@ export default async function Home() {
                 <CarouselItem key={destination.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-2 h-full">
                     <Link href={`/destinations/${destination.slug}`} className="block h-full">
-                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col border rounded-lg bg-card">
+                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col border-none rounded-lg bg-secondary">
                          <div className="relative h-80 w-full">
                             <Image
                               src={destination.image}
@@ -130,7 +139,7 @@ export default async function Home() {
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                          </div>
-                         <CardContent className="p-4 flex-grow">
+                         <CardContent className="p-6 flex-grow">
                             <CardTitle className="text-xl font-headline text-primary group-hover:text-primary/90 transition-colors">{destination.name}</CardTitle>
                              <p className="text-muted-foreground text-sm mt-2">{destination.description.substring(0, 100)}...</p>
                          </CardContent>
@@ -147,7 +156,7 @@ export default async function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 md:py-28 bg-secondary/50">
+      <section id="services" className="py-20 md:py-28 bg-secondary/80">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-headline text-primary">
@@ -159,7 +168,7 @@ export default async function Home() {
            </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {servicesData.map((service) => (
-              <Card key={service.title} className="text-center p-8 bg-card backdrop-blur-sm rounded-2xl shadow-lg border hover:shadow-primary/20 hover:-translate-y-1 transition-all">
+              <Card key={service.title} className="text-center p-8 bg-background rounded-2xl shadow-lg border-none hover:shadow-primary/20 hover:-translate-y-1 transition-all">
                 <div className="inline-block bg-primary/10 text-primary p-4 rounded-full">
                     <service.icon className="w-8 h-8" />
                 </div>
@@ -190,7 +199,7 @@ export default async function Home() {
             {whyChooseUs.map((item) => (
               <div key={item.title} className="p-6">
                 <div className="flex items-center gap-4">
-                    <div className="bg-secondary/70 text-primary p-3 rounded-xl">
+                    <div className="bg-secondary text-primary p-3 rounded-xl">
                         <item.icon className="w-6 h-6" />
                     </div>
                     <h3 className="text-xl font-headline">{item.title}</h3>
@@ -203,7 +212,7 @@ export default async function Home() {
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 md:py-28 bg-secondary/50">
+      <section id="testimonials" className="py-20 md:py-28 bg-secondary/80">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-headline text-primary">
@@ -215,7 +224,7 @@ export default async function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="bg-card p-6 rounded-2xl shadow-lg">
+              <Card key={testimonial.name} className="bg-background p-6 rounded-2xl shadow-lg border-none">
                 <CardContent className="p-0">
                     <div className="flex items-center gap-4">
                         <Avatar className="w-14 h-14">
