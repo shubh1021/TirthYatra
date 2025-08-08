@@ -1,13 +1,14 @@
 
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import type { Destination } from '@/lib/destinations';
 import { cn } from '@/lib/utils';
+import Autoplay from 'embla-carousel-autoplay';
 
 interface DestinationsSectionProps {
   destinations: Destination[];
@@ -17,6 +18,10 @@ export function DestinationsSection({ destinations }: DestinationsSectionProps) 
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [backgroundImage, setBackgroundImage] = useState(destinations[0]?.image || '');
+
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
 
   const updateBackground = useCallback((api: CarouselApi) => {
     const currentSlide = api.selectedScrollSnap();
@@ -59,7 +64,7 @@ export function DestinationsSection({ destinations }: DestinationsSectionProps) 
                     src={backgroundImage}
                     alt="Destination background"
                     fill
-                    className="object-cover scale-110 blur-lg opacity-30"
+                    className="object-cover scale-110 blur opacity-30"
                 />
             )}
             <div className="absolute inset-0 bg-background/70 backdrop-blur-sm"></div>
@@ -73,11 +78,14 @@ export function DestinationsSection({ destinations }: DestinationsSectionProps) 
           </div>
           <Carousel
             setApi={setApi}
+            plugins={[plugin.current]}
             opts={{
               align: 'center',
               loop: true,
             }}
             className="w-full mt-12"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {destinations.map((destination, index) => (
