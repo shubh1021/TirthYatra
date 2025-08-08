@@ -3,8 +3,9 @@
 
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Check, X, ChevronsUpDown, Pilcrow } from "lucide-react";
+import { Check, X, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -69,7 +70,6 @@ export const MultiSelect = React.forwardRef<
       variant,
       defaultValue = [],
       placeholder = "Select options",
-      animation,
       maxCount = 3,
       asChild,
       className,
@@ -138,11 +138,11 @@ export const MultiSelect = React.forwardRef<
                         key={value}
                         className={cn(multiSelectVariants({ variant }))}
                       >
-                         {option?.image && <div className="relative w-5 h-5 mr-2 rounded-sm overflow-hidden"><img src={option.image} alt={option.label} className="w-full h-full object-cover" /></div>}
-                        {Icon && <Icon className="h-4 w-4 mr-2" />}
-                        {option?.label}
+                         {option?.image && <div className="relative w-5 h-5 mr-2 rounded-sm overflow-hidden flex-shrink-0"><Image src={option.image} alt={option.label} fill className="object-cover" /></div>}
+                        {Icon && <Icon className="h-4 w-4 mr-2 flex-shrink-0" />}
+                        <span className="truncate">{option?.label}</span>
                         <X
-                          className="ml-2 h-4 w-4 cursor-pointer"
+                          className="ml-2 h-4 w-4 cursor-pointer flex-shrink-0"
                           onClick={(event) => {
                             event.stopPropagation();
                             toggleOption(value);
@@ -216,7 +216,7 @@ export const MultiSelect = React.forwardRef<
                       >
                         <Check className="h-4 w-4" />
                       </div>
-                      {option.image && <div className="relative w-8 h-8 mr-2 rounded-md overflow-hidden"><img src={option.image} alt={option.label} className="w-full h-full object-cover" /></div>}
+                      {option.image && <div className="relative w-8 h-8 mr-2 rounded-md overflow-hidden flex-shrink-0"><Image src={option.image} alt={option.label} fill className="w-full h-full object-cover" /></div>}
                       {option.icon && (
                         <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                       )}

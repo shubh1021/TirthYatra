@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,8 +6,7 @@ import { HeroSlideshow } from '@/components/hero-slideshow';
 import { Destination } from '@/lib/destinations';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, Droplets, MapPin, Users, Sun } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Calendar, Droplets, MapPin, Users } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 interface DestinationClientPageProps {
