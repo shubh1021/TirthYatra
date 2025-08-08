@@ -1,12 +1,11 @@
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getAllDestinations } from '@/lib/destinations';
 import { Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck, Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { DestinationsSection } from '@/components/destinations-section';
 
 const servicesData = [
     {
@@ -107,53 +106,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Destinations Carousel Section */}
-      <section id="destinations" className="pt-20 pb-20 md:pt-28 md:pb-28 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-headline text-primary">
-              Discover Sacred Destinations
-            </h2>
-          </div>
-          <Carousel
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="w-full mt-12"
-          >
-            <CarouselContent>
-              {destinations.map((destination) => (
-                <CarouselItem key={destination.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-2 h-full">
-                    <Link href={`/destinations/${destination.slug}`} className="block h-full">
-                      <Card className="overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col border-none rounded-lg bg-secondary">
-                         <div className="relative h-80 w-full">
-                            <Image
-                              src={destination.image}
-                              alt={destination.name}
-                              data-ai-hint={destination.imageHint}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              loading="lazy"
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                         </div>
-                         <CardContent className="p-6 flex-grow">
-                            <CardTitle className="text-xl font-headline text-primary group-hover:text-primary/90 transition-colors">{destination.name}</CardTitle>
-                             <p className="text-muted-foreground text-sm mt-2">{destination.description.substring(0, 100)}...</p>
-                         </CardContent>
-                      </Card>
-                    </Link>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
-        </div>
-      </section>
+      <DestinationsSection destinations={destinations} />
 
       {/* Services Section */}
       <section id="services" className="py-20 md:py-28 bg-secondary/80">
