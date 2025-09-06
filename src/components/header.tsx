@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
@@ -66,11 +66,13 @@ export function Header() {
   return (
     <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link href="/" className={logoClasses}>
-          Tirthatan
-        </Link>
+        <div className="flex-1">
+            <Link href="/" className={logoClasses}>
+                <span>तीर्थ</span>a<span>टन</span>
+            </Link>
+        </div>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex flex-1 justify-center items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -83,7 +85,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-1 justify-end items-center gap-2">
             <div className="md:hidden">
               <Button 
                 variant="ghost" 
