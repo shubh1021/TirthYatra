@@ -5,7 +5,6 @@ import { getAllDestinations } from '@/lib/destinations';
 import { Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck, Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { DestinationsSection } from '@/components/destinations-section';
-import { IndiaMap } from '@/components/india-map';
 
 const servicesData = [
     {
@@ -103,23 +102,6 @@ export default async function Home() {
             <div className="absolute bottom-10">
                 <ChevronDown className="w-10 h-10 animate-bounce" />
             </div>
-        </div>
-      </section>
-      
-      {/* Interactive Map Section */}
-      <section id="map" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-headline text-primary">
-              Explore the Sacred Map of India
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground text-balance">
-              Hover over the sacred sites on the map to get a glimpse of the spiritual treasures that await you. Each point is a gateway to a unique journey.
-            </p>
-          </div>
-          <div className="mt-12 h-[400px] md:h-[600px]">
-            <IndiaMap destinations={destinations} />
-          </div>
         </div>
       </section>
 
