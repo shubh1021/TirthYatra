@@ -3,7 +3,6 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { Chatbot } from '@/components/chatbot';
 import { lato, tiro_devanagari_sanskrit } from './fonts';
 import { cn } from '@/lib/utils';
 
@@ -26,7 +25,6 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
-        <Chatbot />
         <Toaster />
       </body>
     </html>
