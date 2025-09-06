@@ -84,11 +84,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-            <Button asChild className="hidden md:inline-flex rounded-full bg-primary text-primary-foreground hover:bg-primary/90" size="sm">
-                <Link href="/trip-planner">
-                    AI Trip Planner
-                </Link>
-            </Button>
             <div className="md:hidden">
               <Button 
                 variant="ghost" 
@@ -114,11 +109,6 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-             <Button asChild className="w-full mt-4" size="lg">
-                <Link href="/trip-planner">
-                    AI Trip Planner <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-            </Button>
           </nav>
         </div>
       )}
@@ -130,5 +120,4 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/#destinations', label: 'Destinations' },
   { href: '/#services', label: 'Services' },
-  { href: '/trip-planner', label: 'Planner' },
 ];
