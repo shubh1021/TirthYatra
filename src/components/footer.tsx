@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Column */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <h3 className="text-2xl font-headline text-primary">TirthYatra</h3>
+            <h3 className="text-2xl font-headline text-primary">Tirthatan</h3>
             <p className="mt-4 text-sm text-muted-foreground">
               Your trusted partner in crafting unforgettable spiritual journeys across the sacred lands of India.
             </p>
@@ -50,7 +50,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TirthYatra. All rights reserved. A journey for the soul.</p>
+          <p>&copy; {new Date().getFullYear()} Tirthatan. All rights reserved. A journey for the soul.</p>
         </div>
       </div>
     </footer>

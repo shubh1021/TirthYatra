@@ -67,7 +67,7 @@ export function Header() {
     <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link href="/" className={logoClasses}>
-          TirthYatra
+          Tirthatan
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">

@@ -55,7 +55,7 @@ const testimonials = [
         avatar: 'https://placehold.co/100x100.png',
         avatarHint: 'indian woman portrait',
         rating: 5,
-        quote: "TirthYatra planned our Kashi trip flawlessly. The Ganga Aarti was a divine experience, all thanks to their meticulous arrangements and knowledgeable guide. Truly a journey for the soul."
+        quote: "Tirthatan planned our Kashi trip flawlessly. The Ganga Aarti was a divine experience, all thanks to their meticulous arrangements and knowledgeable guide. Truly a journey for the soul."
     },
     {
         name: 'David Chen',
@@ -63,7 +63,7 @@ const testimonials = [
         avatar: 'https://placehold.co/100x100.png',
         avatarHint: 'asian man portrait',
         rating: 5,
-        quote: "As a first-time visitor to India for a spiritual quest, I was amazed by the professionalism of TirthYatra. They handled everything, allowing me to fully immerse myself in the experience at Rishikesh."
+        quote: "As a first-time visitor to India for a spiritual quest, I was amazed by the professionalism of Tirthatan. They handled everything, allowing me to fully immerse myself in the experience at Rishikesh."
     },
     {
         name: 'Fatima Al Jamil',
@@ -95,7 +95,7 @@ export default async function Home() {
         </div>
         <div className="relative z-10 flex flex-col items-center animate-fade-in px-4">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-bold text-shadow-lg text-balance">
-                TirthYatra
+                Tirthatan
             </h1>
             <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 text-balance">
                 Your Spiritual Journey Starts Here. Curated divine experiences for global explorers in India.
@@ -142,7 +142,7 @@ export default async function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-headline text-primary">
-                Why Embark on Your Journey with TirthYatra?
+                Why Embark on Your Journey with Tirthatan?
             </h2>
              <p className="mt-4 text-lg text-muted-foreground text-balance">
                 We are more than a travel company; we are your dedicated partners in crafting a transformative spiritual experience.
@@ -172,7 +172,7 @@ export default async function Home() {
               Voices of Our Pilgrims
             </h2>
             <p className="mt-4 text-lg text-muted-foreground text-balance">
-              Hear from fellow travelers who have experienced the divine with TirthYatra.
+              Hear from fellow travelers who have experienced the divine with Tirthatan.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">

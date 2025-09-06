@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -7,7 +8,7 @@ import { lato, tiro_devanagari_sanskrit } from './fonts';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'TirthYatra - Your Spiritual Journey Starts Here',
+  title: 'Tirthatan - Your Spiritual Journey Starts Here',
   description: 'Curated divine experiences for global explorers in India.',
 };
 
