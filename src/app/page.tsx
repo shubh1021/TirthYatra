@@ -1,11 +1,11 @@
 
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getAllDestinations } from '@/lib/destinations';
 import { Plane, Hotel, Car, UserCheck, Heart, Sparkles, ShieldCheck, Star, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { DestinationsSection } from '@/components/destinations-section';
+import { IndiaMap } from '@/components/india-map';
 
 const servicesData = [
     {
@@ -52,7 +52,7 @@ const testimonials = [
     {
         name: 'Ananya Sharma',
         location: 'Mumbai, India',
-        avatar: 'https://placehold.co/100x100.png',
+        avatar: '/images/testimonials/indian-woman-portrait.jpg',
         avatarHint: 'indian woman portrait',
         rating: 5,
         quote: "Tirthatan planned our Kashi trip flawlessly. The Ganga Aarti was a divine experience, all thanks to their meticulous arrangements and knowledgeable guide. Truly a journey for the soul."
@@ -60,7 +60,7 @@ const testimonials = [
     {
         name: 'David Chen',
         location: 'Singapore',
-        avatar: 'https://placehold.co/100x100.png',
+        avatar: '/images/testimonials/asian-man-portrait.jpg',
         avatarHint: 'asian man portrait',
         rating: 5,
         quote: "As a first-time visitor to India for a spiritual quest, I was amazed by the professionalism of Tirthatan. They handled everything, allowing me to fully immerse myself in the experience at Rishikesh."
@@ -68,7 +68,7 @@ const testimonials = [
     {
         name: 'Fatima Al Jamil',
         location: 'Dubai, UAE',
-        avatar: 'https://placehold.co/100x100.png',
+        avatar: '/images/testimonials/arab-woman-portrait.jpg',
         avatarHint: 'arab woman portrait',
         rating: 5,
         quote: "Our family's pilgrimage to Ayodhya was a dream come true. The team was incredibly supportive and considerate of our needs. Highly recommend for a stress-free spiritual vacation."
@@ -103,6 +103,23 @@ export default async function Home() {
             <div className="absolute bottom-10">
                 <ChevronDown className="w-10 h-10 animate-bounce" />
             </div>
+        </div>
+      </section>
+      
+      {/* Interactive Map Section */}
+      <section id="map" className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-headline text-primary">
+              Explore the Sacred Map of India
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground text-balance">
+              Hover over the sacred sites on the map to get a glimpse of the spiritual treasures that await you. Each point is a gateway to a unique journey.
+            </p>
+          </div>
+          <div className="mt-12 h-[400px] md:h-[600px]">
+            <IndiaMap destinations={destinations} />
+          </div>
         </div>
       </section>
 

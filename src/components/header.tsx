@@ -68,7 +68,7 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex-1">
             <Link href="/" className={logoClasses}>
-                <span>तीर्थ</span>a<span>टन</span>
+                Tirthatan
             </Link>
         </div>
 
